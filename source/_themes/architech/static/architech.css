@@ -5205,7 +5205,7 @@ a.badge:focus {
   visibility: hidden;
 }
 .affix {
-  position: relative;
+  position: fixed;
 }
 body {
   padding-top: 60px;

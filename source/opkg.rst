@@ -1,5 +1,5 @@
-Opkg Basics
-===========
+Opkg
+====
 
 .. image:: _static/opkg.png
    :align: left
@@ -76,13 +76,13 @@ You can easily setup a new repository for your custom builds:
 
 ::
 
- sudo ln -s /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/ipk/ ipk
+ sudo ln -s /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/ipk/ @board-alias@-ipk
 
 3) Create a new configuration file on the target (for example */etc/opkg/my_packages.conf*) containing lines like this one to index the packages related to a particular machine:
 
 ::
 
- src/gz @machine-name@ http://@vm-ip@/ipk/@machine-name@
+ src/gz @machine-name@ http://@vm-ip@/@board-alias@-ipk/@machine-name@
 
 4) Connect the board and the personal computer you are developing on by means of an ethernet cable
 

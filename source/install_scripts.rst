@@ -1,5 +1,5 @@
 Installation scripts
-^^^^^^^^^^^^^^^^^^^^
+====================
 
 Architech's Yocto based SDK is built on top of **@ubuntu-version@**, hence all the scripts
 provided are proven to work on such a system.
@@ -10,7 +10,7 @@ option and/or modify the scripts yourself, remember that you won't get any suppo
 doing so.
 
 Install a clone of the virtual machine inside your native machine
-=================================================================
+-----------------------------------------------------------------
 
 To install the same tools you get inside the virtual machine on your native machine
 you need to download and run a system wide installation script:
@@ -31,7 +31,7 @@ At the end of the installation process, you will get the same tools installed wi
 the virtual machine, that is, all the tools necessary to work with Architech's boards.
 
 Install just one board
-======================
+----------------------
 
 If you don't want to install the tools for all the boards, you can install just the subset
 of tools related to @board@:
