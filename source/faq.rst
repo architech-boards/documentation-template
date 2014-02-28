@@ -1,5 +1,8 @@
 FAQ
-===
+^^^
+
+Virtual Machine
+===============
 
 What is the password for the default user of the virtual machine?
 -----------------------------------------------------------------
@@ -31,3 +34,5 @@ command:
 
 Linux will ask you (twice, the second time is just for confirmation) to write the password for user root.
 
+@board@
+@board-size:=@

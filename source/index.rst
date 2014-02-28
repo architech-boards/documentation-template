@@ -25,6 +25,7 @@ Furthermore, we encourage you to read the
 
   quick
   sdk-architecture
+  bsp
   tools
   board
   faq
