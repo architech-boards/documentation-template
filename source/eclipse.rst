@@ -19,7 +19,7 @@ Creating the Project
 --------------------
 
 You can create two types of projects: Autotools-based, or Makefile-based. This section describes how to create Autotools-based projects from within the **Eclipse IDE**.
-Launch Eclipse using Architech Launcher or use **run_eclipse** command or just click on the desktop icon.
+Launch Eclipse using Architech Splashscreen just click on **Develop with Eclipse**.
 
 .. image:: _static/run_eclipse.png
 
