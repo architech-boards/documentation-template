@@ -18,7 +18,7 @@ Qt Creator IDE
 Build image with qt
 -------------------
 
-1. With HOB or bitbake build an image with Qt libreries. To see how to do this, refer to :ref:`howToUseHOB` and/or :ref:`howToUsePoky` Chapters.
+1. With HOB or bitbake build an image with Qt libreries. To see how to do this, refer to :ref:`howToUseHOB` and/or :ref:`bitbake_label` Chapters.
 
 2. Once the image has been built uncompress in the sysroot folder in target board and in "@board-alias@/sysroot".
 
@@ -58,8 +58,8 @@ To create the project follow these steps:
 
 In the next section we will debug our Hello World! application directly on @board-alias@.
 
-Debug Hello World project on @board-alias@ board
-------------------------------------------
+Debug Hello World project
+-------------------------
 
 8. Select build configuration: **@board-alias@ - Debug** and build the project.
 
