@@ -8,7 +8,7 @@ This document will guide you from importing the virtual machine to the debugging
 .. include:: vm.rst
 
 Splashscreen Application
-------------------------
+========================
 
 1. Start the VM
 
@@ -42,7 +42,7 @@ you can:
 Click on **run bitbake**, you will be show a terminal with the enviroment loaded to start to build an image.
 
 Build the minimal-dev image
----------------------------
+===========================
 
 1. Open with **vim** the file **local.conf**:
 
@@ -75,6 +75,12 @@ with these lines will be build in the image the **tcf-agent** and the **gdbserve
 
 	$ bitbake minimal-dev
 
+.. important::
+
+	If the target board is a hachiko-tiny the minimal-dev is named **tiny-image** so use the command:
+
+	$ bitbake tiny-image
+
 .. note::
 
 	Is required a internet connection to build the image
@@ -94,7 +100,7 @@ At the end of the build the image will be automatically saved in *@board-alias@/
 .. include:: build-sd.rst
 
 Create a HelloWorld project
----------------------------
+===========================
 
 1. Now you will create a simple **HelloWorld** using **Eclipse**. Return on **Splashscreen** screen and select the voice **Develop with Eclipse** from the menu of the target board.
 
@@ -117,15 +123,60 @@ Debug the application on the target board
 
 .. include:: poweron-board.rst
 
-Connect the @board-alias@ board to the PC by means of a usb cable to power the board and to have the serial console. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
+On your Host Operating System open a terminal console (ctrl+alt+t) and run command:
 
 ::
 
- Yocto (Built by Poky 7.0.1) 1.2.1                                               
-  ttyO0                                                                          
-                                                                                
- @board-alias@ login: root                                                             
- root@@board-alias@:~# /etc/init.d/tcf-agent restart
+ minicom -w -s
+
+choose *select port setup* and press **Enter**. Setup the port with the following configuration:
+
+::
+
+ A -    Serial Device      : /dev/ttyUSB0
+ B - Lockfile Location     : /var/lock
+ C -   Callin Program      :
+ D -  Callout Program      :
+ E -    Bps/Par/Bits       : 115200 8N1
+ F - Hardware Flow Control : No
+ G - Software Flow Control : No
+
+once you are done configuring the serial port, you are back to minicom main menu and you can select **exit**.
+press the **reset button** on the @board-alias@ board.
+The login will appear inside the terminal of the @board-alias@ board:
+
+::
+
+ Yocto (Built by Poky 7.0.1) 1.2.1
+ ttyO0
+
+ @board-alias@ login:
+
+.. note::
+
+  sometimes you need press enter to view the login
+
+Insert **root** and press **enter**. run command:
+
+::
+
+  ifconfig eth0 192.168.0.10
+  ping 192.168.0.100
+
+If the output is similar to this one:
+
+::
+
+ 64 bytes from 192.168.0.100: icmp_req=1 ttl=64 time=0.946 ms                     
+ 64 bytes from 192.168.0.100: icmp_req=2 ttl=64 time=0.763 ms                     
+ 64 bytes from 192.168.0.100: icmp_req=3 ttl=64 time=0.671 ms                     
+ 64 bytes from 192.168.0.100: icmp_req=4 ttl=64 time=0.793 ms
+
+the ethernet connection is ok, then run command:
+
+::
+
+  /etc/init.d/tcf-agent restart
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
