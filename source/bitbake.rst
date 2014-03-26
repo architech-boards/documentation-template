@@ -1,4 +1,3 @@
-.. _bitbake_label:
 
 Bitbake
 =======
