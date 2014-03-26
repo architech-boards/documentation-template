@@ -13,6 +13,7 @@
 @user-password@
 @ubuntu-machine-name@
 @vm-ip@
+@target-ip@
 @board-alias@
 @ubuntu-version@
 @distro-name@
