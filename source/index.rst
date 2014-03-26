@@ -1,12 +1,12 @@
-Architech's @board-alias@ documentation
-=======================================
+Architech's @board@ documentation
+============@board-size:=@==============
 
 .. image:: _static/@board-alias@.png
     :align: center
 
 .. only:: html
 
-Welcome to **@board-alias@** documentation!
+Welcome to **@board@** documentation!
 
 If you are a new user of the **Yocto based SDK** we suggest you to read the
 
