@@ -1,4 +1,4 @@
-.. _bitbake_label`:
+.. _bitbake_label:
 
 Bitbake
 =======
@@ -20,7 +20,7 @@ can execute is, in fact, a single task.
 Environment
 -----------
 
-To properly run Bitbake, the first thing you need to do is setup a proper shell environment.
+To properly run Bitbake, the first thing you need to do is setup the shell environment.
 Luckily, there is a script that takes care of it, all you need to do is:
 
 .. important::
@@ -43,7 +43,7 @@ and will change your current working directory to that specific directory.
 
 .. important::
 
-    The build directory contain all the caches, builds output, temporary files, log files, file system images... everything!
+    The build directory contains all the caches, builds output, temporary files, log files, file system images... everything!
 
 The default build directory for @board@ is located under:
 
@@ -69,7 +69,7 @@ should be interested about are: **MACHINE**, **DISTRO**, **BB_NUMBER_THREADS** a
 *BB_NUMBER_THREADS* and *PARALLEL_MAKE* can help you speed up the build process. *BB_NUMBER_THREADS*
 is used to tell Bitbake how many tasks can be executed at the same time, while *PARALLEL_MAKE* contains
 the **-j** option to give to *make* program when issued. Both *BB_NUMBER_THREADS* and *PARALLEL_MAKE*
-are related to the number of processors of your (virtual/)machine.
+are related to the number of processors of your (virtual) machine.
 
 *bblayers.conf* is used to tell Bitbake which meta-layers to take into account when parsing/looking for
 recipes, machine, distributions, configuration files, bbclasses, and so on. The most important variable
