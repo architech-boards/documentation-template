@@ -39,8 +39,9 @@ To create a project based on a Yocto template and then display the source code, 
 * Be sure the *License* field is correct.
 * Click *Finish*.
 
-**Note:** If the "open perspective" prompt appears, click *Yes* so that you enter in the C/C++ perspective.
-The left-hand navigation panel shows your project. You can display your source by double clicking the project's source file.
+.. note::
+
+ If the "open perspective" prompt appears, click *Yes* so that you enter in C/C++ perspective. The left-hand navigation panel shows your project. You can display your source by double clicking on the project source file.
 
 .. image:: _static/projectexplorer.jpg
  
@@ -61,7 +62,9 @@ To add more libraries to compile:
 * In LDFLAGS field, you can specify the libraries you use with -lname_library and you can also specify the path where to look for libraries with -Lpath_library
 * Click on Project→Build All to compile the project
 
-**Note:** All libraries must be located in *architech_sdk/architech/@board-alias@/sysroot* subdirectories.
+.. note::
+
+ All libraries must be located in */home/@user@/architech_sdk/architech/@board-alias@/sysroot* subdirectories.
 
 .. image:: _static/autotools.jpg
 
@@ -91,7 +94,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. image:: _static/tcf1.jpg
 
-* Insert in *Host Name* and *Connection Name* fields the IP address of the target board. (e.g. 192.168.0.10)
+* Insert in *Host Name* and *Connection Name* fields the IP address of the target board. (e.g. @target-ip@)
 
 .. image:: _static/tcf2.jpg
 
