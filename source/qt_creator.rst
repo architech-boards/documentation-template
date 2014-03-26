@@ -4,37 +4,35 @@ Qt Creator IDE
 .. image:: _static/qt-0.png
 	   :align: left
 
-| **Qt** is a cross-platform application framework that is used for developing application software with a graphical user interface (GUI). 
-| **Qt Creator** is a cross-platform C++ IDE, it includes a visual debugger and an integrated GUI layout and forms designer. 
-| The versions used in this SDK are **Qt SDK 4.8.5** and **Qt Creator 2.8.1**.
-| It is possible to compile applications for **x86** and **ARM** processors. 
-| You can debug the program on the virtual machine or on @board-alias@ Board.
+| **Qt** is a cross-platform application framework that is used to build applications. One of the best features of Qt is its capability of generating Graphical User Interfaces (GUIs).
+| **Qt Creator** is a cross-platform C++ IDE which includes a visual debugger, an integrated GUI layout and form designer. It makes possible to compile and debug applications on both **x86** (host) and **ARM** (target) machines.
+| This SDK relies on **version 4.8.5** of Qt and **version 2.8.1** of Qt Creator.
 |
 
 .. note::
 
- Before reading this Chapter you should be able to use HOB, bitbake.
+ Before reading this Chapter you should know how to use HOB and bitbake.
 
-Build image with qt
--------------------
+Build an image with qt support
+------------------------------
 
-1. With HOB or bitbake build an image with Qt libreries. To see how to do this, refer to :ref:`howToUseHOB` and/or :ref:`bitbake_label` Chapters.
+1. Using HOB or bitbake, build an image with Qt libraries included (refer to :ref:`howToUseHOB` and/or :ref:`bitbake_label` Chapters).
 
-2. Once the image has been built uncompress in the sysroot folder in target board and in "@board-alias@/sysroot".
+2. Once the image has been built, untar the corresponding root file system inside directory "/home/@user@/architech_sdk/architech/@board-alias@/sysroot" and setup with the same file system the root file system of the board.
 
 
 Hello World!
 ------------
 
-The purpose of this example project is to generate a form with an "Hello World" label in it, at the beginning on the x86 virtual machine and than on the @board-alias@ board.
+The purpose of this example project is to generate a form with an "Hello World" label in it, at the beginning on the x86 virtual machine and than on @board@ board.
 
 To create the project follow these steps:
 
-1. Launch Qt Creator either from the **Welcome Screen** (**Develop->IDEs->Qt Creator**)
+1. Use the **Welcome Screen** to run Qt Creator by selecting *Architech→@board@→Develop with Qt Creator*
 
 .. image:: _static/qtCreatorStart.png
 
-2. Go to *File -> Open File or Project* to open **QtHelloWorld.pro** file located in *@board-alias@/workspace/qt/QtHelloWorld/* directory.
+2. Go to *File -> Open File or Project* to open **QtHelloWorld.pro** file located in */home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/QtHelloWorld/* directory.
 
 3. Click on "QtHelloWorld" icon to open project menu.
 
@@ -56,7 +54,7 @@ To create the project follow these steps:
 
 .. image:: _static/qt-5.png
 
-In the next section we will debug our Hello World! application directly on @board-alias@.
+In the next section we will debug our Hello World! application directly on @board@.
 
 Debug Hello World project
 -------------------------
@@ -69,7 +67,7 @@ Debug Hello World project
 
 ::
 
-  scp workspace/qt/build-QtHelloWorld-Hachiko-Debug/QtHelloWorld root@192.168.0.10:/home/root
+  scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-Hachiko-Debug/QtHelloWorld root@@target-ip@:/home/root
 
 10. Use minicom to launch gdbserver application on the target board:
 
@@ -88,7 +86,7 @@ Debug Hello World project
 
 - Kit: **@board-alias@**
 
-- Local executable: **<installation_folder>/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHalloWorld-@board-alias@-Debug/QtHelloWorld**
+- Local executable: **/home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-@board-alias@-Debug/QtHelloWorld**
 
 Press **OK** button to start the debug.
 
