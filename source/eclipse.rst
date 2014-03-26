@@ -1,17 +1,17 @@
 Eclipse IDE
 ===========
 
-Eclipse is an integrated development environment (IDE). It contains a base workspace and the Yocto plug-in system to compile and debug a program for the @board-alias@ board.
+Eclipse is an integrated development environment (IDE). It contains a base workspace and the Yocto plug-in system to compile and debug a program for @board@.
 Hereafter, the operating system that runs the IDE/debugger will be named host machine, and the board being debugged will be named target machine.
 The host machine could be running as a virtual machine guest operating system, anyway, the documentation for the host machine running as a guest operating system and as host operating system is exactly the same.
 
-Pay attention before to start writing your application you need:
+To write your application you need:
 
 * a filesystem (you can use bitbake/hob to build your preferred filesystem) with develop support (that is, it must include all the necessary header files, the *tcf-agent* program and *gdbserver*)
 
-* an SD card already partitioned, with the bootloader in the FAT partition, and
+* a media where to install the root filesystem, and, if necessary, the bootloader
 
-* a network connect between the host machine and the target machine.
+* a network connection between the host machine and the target machine.
 
 .. index:: Project
 
@@ -40,7 +40,7 @@ To create a project based on a Yocto template and then display the source code, 
 * Click *Finish*.
 
 **Note:** If the "open perspective" prompt appears, click *Yes* so that you enter in the C/C++ perspective.
-The left-hand navigation pane shows your project. You can display your source by double clicking the project's source file.
+The left-hand navigation panel shows your project. You can display your source by double clicking the project's source file.
 
 .. image:: _static/projectexplorer.jpg
  
@@ -70,25 +70,22 @@ To add more libraries to compile:
 Deploying and Debugging the Application
 ---------------------------------------
 
-Connect the @board-alias@ board to the PC by means of a usb cable to power the board and to have the serial console. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
+Connect @board@ console to your PC and power-on the board. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
 
 ::
 
- Yocto (Built by Poky 7.0.1) 1.2.1                                               
-  ttyO0                                                                          
-                                                                                
  @board-alias@ login: root                                                             
  root@@board-alias@:~# /etc/init.d/tcf-agent restart
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
 * Select Run→Debug Configurations...
-* In the left area, expand *C/C++Remote Application*.
+* In the left area, expand *C/C++ Remote Application*.
 * Locate your project and select it to bring up a new tabbed view in the *Debug Configurations* Dialog.
 
 .. image:: _static/debugform.jpg
 
-* Insert in *C/C++ Application* the path and the name file where is the binary compiled.
+* Insert in *C/C++ Application* the filepath of your application binary on your host machine.
 * Click on "New" button near the drop-down menu in the *Connection* field.
 * Select *TCF* icon.
 
@@ -98,11 +95,11 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. image:: _static/tcf2.jpg
 
-* Then press *Finish*.
+* Press *Finish*.
 
 * Use the drop-down menu now in the *Connection* field and pick the IP Address you entered earlier.
 
-* Enter the absolute path on the target into which you want to deploy the application. Use the *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
+* Enter the absolute path on the target into which you want to deploy the application. Use *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
 
 .. image:: _static/remotepath.png
 
@@ -114,10 +111,10 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. image:: _static/gdb.jpg
 
-* In GDB Debugger field insert the absoulute path where is located the gdb program of the toolchain. (e.g."/home/architech/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb")
+* In GDB Debugger field insert the absoulute path where is located the gdb program of the toolchain. (e.g."/home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb")
 
 * In *Debugger* window there is the tab named *Shared Library*, click on its.
-* Add the libraries path "lib" and "usr/lib" of the rootfs (e.g. "/home/architech/architech_sdk/architech/@board-alias@/sysroot/lib"). These libraries must be the same used in the target board.
+* Add the libraries path "lib" and "usr/lib" of the rootfs (e.g. "/home/@user@/architech_sdk/architech/@board-alias@/sysroot/lib"). These libraries must be the same used in the target board.
 
 .. image:: _static/libs.jpg
 
