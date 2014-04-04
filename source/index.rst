@@ -1,7 +1,7 @@
 Architech's @board@ documentation
 ============@board-size:=@==============
 
-.. image:: _static/@board-alias@.png
+.. image:: _static/board.png
     :align: center
 
 .. only:: html

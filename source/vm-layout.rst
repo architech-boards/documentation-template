@@ -92,5 +92,5 @@ A list of all available Architech's boards will open, select @board@.
 
 A list of actions related to @board@ that can be activated will appear.
 
-.. image:: _static/splashscreen-@board-alias@-menu.png
+.. image:: _static/splashscreen-board-menu.png
     :align: center
