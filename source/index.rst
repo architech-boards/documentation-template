@@ -28,9 +28,10 @@ machine (real or virtual) you use to run the SDK or to the board.
 
  This box will be used to refer to @board@ board
 
+Chapters
+--------
 
 .. toctree::
-  :hidden:
   :maxdepth: 2
   :numbered:
 
