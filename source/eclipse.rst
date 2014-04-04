@@ -1,17 +1,29 @@
-Eclipse IDE
-===========
+Eclipse
+=======
 
-Eclipse is an integrated development environment (IDE). It contains a base workspace and the Yocto plug-in system to compile and debug a program for @board@.
-Hereafter, the operating system that runs the IDE/debugger will be named host machine, and the board being debugged will be named target machine.
-The host machine could be running as a virtual machine guest operating system, anyway, the documentation for the host machine running as a guest operating system and as host operating system is exactly the same.
+Eclipse is an integrated development environment (IDE). It contains a base workspace
+and the Yocto plug-in system to compile and debug a program for @board@. Hereafter,
+the operating system that runs the IDE/debugger will be named host machine, and the
+board being debugged will be named target machine. The host machine could be running
+as a virtual machine guest operating system, anyway, the documentation for the host
+machine running as a guest operating system and as host operating system is exactly
+the same.
 
 To write your application you need:
 
-* a filesystem (you can use bitbake/hob to build your preferred filesystem) with develop support (that is, it must include all the necessary header files, the *tcf-agent* program and *gdbserver*)
+* a root file system filesystem (you can use :ref:`bitbake <bitbake_label>`/:ref:`hob <hob_label>` to build your preferred filesystem) with development support (that is, it must include all the necessary libraries, header files, the *tcf-agent* program and *gdbserver*) included
 
-* a media where to install the root filesystem, and, if necessary, the bootloader
+* a media with the :ref:`root filesystem <rootfs_label>` installed and, if necessary, the bootloader
 
-* a network connection between the host machine and the target machine.
+* @board@ :ref:`powered up <poweron_label>` with the aforementioned root file system
+
+* a working :ref:`serial console <serial_console_label>` terminal
+
+* a working :ref:`network <network_label>` connection between your workstation and the board (connector *@quick-lan-connector@*), so, be sure that:
+
+ 1. your board has ip address @target-ip@ on interface @target-default-eth-if@, and
+
+ 2. your PC has an ip address in the same family of addresses, e.g. @vm-ip@. 
 
 .. index:: Project
 
@@ -75,10 +87,10 @@ Deploying and Debugging the Application
 
 Connect @board@ console to your PC and power-on the board. Once you built the project and the board is running the image, use minicom to run **tcf-agent** program in target board:
 
-::
+.. board::
 
- @board-alias@ login: root                                                             
- root@@board-alias@:~# /etc/init.d/tcf-agent restart
+ | @board-alias@ login: root                                                             
+ | /etc/init.d/tcf-agent restart
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
@@ -114,17 +126,24 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. image:: _static/gdb.jpg
 
-* In GDB Debugger field insert the absoulute path where is located the gdb program of the toolchain. (e.g."/home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb")
+* In GDB Debugger field, insert the filepath of gdb for your toolchain
 
-* In *Debugger* window there is the tab named *Shared Library*, click on its.
-* Add the libraries path "lib" and "usr/lib" of the rootfs (e.g. "/home/@user@/architech_sdk/architech/@board-alias@/sysroot/lib"). These libraries must be the same used in the target board.
+.. host::
 
-.. image:: _static/libs.jpg
+ /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-@eabi@/arm-poky-linux-@eabi@-gdb
+
+* In *Debugger* window there is a tab named *Shared Library*, click on it.
+* Add the libraries paths *lib* and *usr/lib* of the rootfs (which must be the same used in the target board)
+
+.. host::
+
+ | /home/@user@/architech_sdk/architech/@board-alias@/sysroot/lib
+ | /home/@user@/architech_sdk/architech/@board-alias@/sysroot/usr/lib
 
 * Click *Debug* to bring up a login screen and login.
 * Accept the debug perspective. 
 
 .. important::
 
-	If debug does not works, check if tcf-agent is running on the board and gdbserver is present.
+ If debug does not work, check on the board if *tcf-agent* is running and *gdbserver* has been installed.
 

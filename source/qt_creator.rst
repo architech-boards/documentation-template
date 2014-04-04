@@ -1,5 +1,5 @@
-Qt Creator IDE
-==============
+Qt Creator
+==========
 
 .. image:: _static/qt-0.png
 	   :align: left
@@ -7,19 +7,46 @@ Qt Creator IDE
 | **Qt** is a cross-platform application framework that is used to build applications. One of the best features of Qt is its capability of generating Graphical User Interfaces (GUIs).
 | **Qt Creator** is a cross-platform C++ IDE which includes a visual debugger, an integrated GUI layout and form designer. It makes possible to compile and debug applications on both **x86** (host) and **ARM** (target) machines.
 | This SDK relies on **version 4.8.5** of Qt and **version 2.8.1** of Qt Creator.
+
 |
+|
+| Before getting our hands dirty, make sure all these steps have been followed:
 
-.. note::
+1. Use :ref:`Hob <howToUseHOB>` or :ref:`Bitbake <bitbake_label>` to build an image with *openssh* and development support (that is, it must include all the necessary libraries, header files, the *tcf-agent* program and *gdbserver*) included
 
- Before reading this Chapter you should know how to use HOB and bitbake.
+2. Deploy the :ref:`root file system <rootfs_label>` just generated on the final media used to boot the board
 
-Build an image with qt support
-------------------------------
+3. Replicate the same root file system into directory
 
-1. Using HOB or bitbake, build an image with Qt libraries included (refer to :ref:`howToUseHOB` and/or :ref:`bitbake_label` Chapters).
+.. host::
 
-2. Once the image has been built, untar the corresponding root file system inside directory "/home/@user@/architech_sdk/architech/@board-alias@/sysroot" and setup with the same file system the root file system of the board.
+ /home/@user@/architech_sdk/architech/@board-alias@/sysroot
 
+4. Copy the Qt Libraries to the board media used to boot
+
+.. host::
+
+ | sudo mkdir -p /path/to/board/sysroot/**usr/local/Trolltech/**
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/\* /path/to/board/sysroot/**usr/local/Trolltech/**
+
+5. Copy the Qt Libraries to your sdk sysroot directory
+
+.. host::
+
+ | sudo mkdir -p ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/\* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech
+
+6. Unmount the media used to boot the board from your computer and insert it into the board
+
+7. :ref:`Power-On <poweron_label>` the board
+
+8. Open up the :ref:`serial console <serial_console_label>`.
+
+9. Provide a working :ref:`network <network_label>` connection between your workstation and the board (connector *@quick-lan-connector@*), so, be sure that:
+
+ 1. your board has ip address @target-ip@ on interface @target-default-eth-if@, and
+
+ 2. your PC has an ip address in the same family of addresses, e.g. @vm-ip@. 
 
 Hello World!
 ------------
@@ -65,13 +92,13 @@ Debug Hello World project
 
 9. Copy the generated executable to the target board (e.g /home/root/).
 
-::
+.. host::
 
   scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-Hachiko-Debug/QtHelloWorld root@@target-ip@:/home/root
 
 10. Use minicom to launch gdbserver application on the target board:
 
-::
+.. board::
 
   gdbserver :10000 QtHelloWorld -qws
 

@@ -17,3 +17,13 @@
 @board-alias@
 @ubuntu-version@
 @distro-name@
+@quickstart-image@
+@console-device@
+@target-default-eth-if@
+@eabi@
+@u-boot-start-addr@
+@u-boot-end-addr@
+@unboxing@
+@quick-lan-connector@
+@qt-libs-alias@
+@arm-toolchain-directory@

@@ -9,9 +9,9 @@ What is the password for the default user of the virtual machine?
 
 The password for the default user, that is **@user@**, is:
 
-::
+.. host::
 
-  @user-password@
+ @user-password@
 
 What is **sudo**?
 -----------------
@@ -28,9 +28,9 @@ What is the password for user root?
 By default, @ubuntu-version@ comes with no password defined for **roor** user, to set it run the following
 command:
 
-::
+.. host::
 
-  sudo passwd root
+ sudo passwd root
 
 Linux will ask you (twice, the second time is just for confirmation) to write the password for user root.
 

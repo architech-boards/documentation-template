@@ -22,18 +22,25 @@ Environment
 To properly run Bitbake, the first thing you need to do is setup the shell environment.
 Luckily, there is a script that takes care of it, all you need to do is:
 
-.. important::
+.. host::
 
-    source /path/to/oe-init-build-env /path/to/build/directory
+ source /path/to/oe-init-build-env /path/to/build/directory
 
 Inside the virtual machine, you can find *oe-init-build-env* script inside:
 
-::
+.. host::
 
-    /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky
+ /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky
 
 If you omit the build directory path, a directory named **build** will be created under your 
 current working directory.
+
+By default, with the SDK, the script is used like this:
+
+.. host::
+
+ source /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/oe-init-build-env
+
 Your current working directory changes to such a directory and you can customize configurations
 files (that the environment script put in place for you when creating the directory), run Bitbake
 to build whatever pops to your mind as well run hob.
@@ -42,13 +49,13 @@ and will change your current working directory to that specific directory.
 
 .. important::
 
-    The build directory contains all the caches, builds output, temporary files, log files, file system images... everything!
+ The build directory contains all the caches, builds output, temporary files, log files, file system images... everything!
 
 The default build directory for @board@ is located under:
 
-.. important::
+.. host::
 
-    /home/@user@/architech_sdk/architech/@board-alias@/yocto/build
+ /home/@user@/architech_sdk/architech/@board-alias@/yocto/build
 
 and the splash screen has a facility (a button located under @board@'s page) that can take you
 there with the right environment already in place so you are productive right away.
@@ -84,38 +91,38 @@ With your shell setup with the proper environment and your configuration files c
 board and your will, you are ready to use Bitbake.
 The first suggestion is to run:
 
-.. important::
+.. host::
 
-    bitbake -h
+ bitbake -h
 
 Bitbake will show you all the options it can be run with.
 During normal activity you will need to simply run a command like:
 
-.. important::
+.. host::
 
-    bitbake <recipe name>
+ bitbake <recipe name>
 
 for example:
 
-.. tip::
+.. host::
 
-    bitbake core-image-lsb-dev
+ bitbake core-image-minimal-dev
 
-Such a comman will build bootloader, Linux kernel and a Linux Standard Base file system.
-*core-image-lsb-dev* tells Bitbake to execute whatever recipe
+Such a comman will build bootloader, Linux kernel and a root file system.
+*core-image-minimal-dev* tells Bitbake to execute whatever recipe
 
-::
+.. host::
 
-    poky/meta/recipes-extended/images/core-image-lsb-dev.bb
+ /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/meta/recipes-extended/images/core-image-lsb-dev.bb
 
 tells it to do, so, you just place the name of the recipe without the extension.
 
-Of course, there are times when you want more control, for example, you want to execute just one task
+Of course, there are times when you want more control over Bitbake, for example, you want to execute just one task
 like recompiling the Linux kernel, no matter what. That action can be achieved with:
 
-::
+.. host::
     
-    bitbake -c compile -f virtual/kernel
+ bitbake -c compile -f virtual/kernel
 
 where *-c compile* states the you want to execute the *do_compile* task and *-f* forces Bitbake
 to execute the command even if it thinks that there are no modifications and hence there is no need to 
