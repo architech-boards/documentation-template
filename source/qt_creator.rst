@@ -1,3 +1,5 @@
+.. _qt_creator_label:
+
 Qt Creator
 ==========
 
