@@ -1,3 +1,256 @@
-To generate the html documentation please run:
-make html
-The entry point of the documentation will be build/html/index.html
+#################
+# Documentation #
+#################
+
+This repository contains ArchiTech boards sphinx documentation template. Such a template contains the
+documentation common to all the boards. Where the board has something specific to it:
+
+1. the template has an alias (defined inside a manifest) that the board documentation sources
+   needs to define
+
+2. the template has a reference to a document that needs to be defined by the board documentation
+
+3. the template references an image which needs to be defined by each board
+
+##################
+# Alias Manifest #
+##################
+
+This template has a file named "to_replace.manifest" defining all the aliases used by the template
+itself.
+During the generation of the final documentation, a script (we will discuss it later) will look
+at the manifest and, for each alias, will try to find the definition of it inside a file named
+"to_replace.key" located within the board documentation sources.
+
+The specification for to_replace.manifest is:
+* each line defines an alias, no line comments are allowed
+* each line must start with @ and must terminate with @, no trailing spaces are allowed
+* to mark a new line, just use \n (windows users needs to be warried about this)
+* within the two "@" puts the alias you want to be replaced in the final documentation
+
+The specification for to_replace.keys is:
+* each line specifies an alias, no line comments are allowed
+* each line must contain a string like this one:
+  @alias@;value
+  where "alias" is the alias name you find inside to_replace.manifest and that you want to be replaced,
+  and "value" is the string you want to put in place of "@alias@" every time "@alias@" is encountered.
+  "value" can be an empty string.
+* to mark a new line, just use \n
+
+The use of aliases is very simple. An .rst document defined within the template or in the board
+documentation uses the alias. For example, the first line of file source/index.rst of the template is:
+Architech's @board@ documentation
+
+@board@ is defined inside to_replace.manifest. Tibidabo to_replace.keys has this line:
+@board@;Tibidabo
+
+This means that when the final documentation gets generated, the first line of Tibidabo index.rst file
+will be:
+Architech's Tibidabo documentation
+
+However, if the string you defined an alias for gets replaced within a title you have a problem.
+Sphinx requires that a Title has to be underlined by a set of characters of the same lenght of the title.
+For example:
+
+My Title
+^^^^^^^^
+
+Anyway, if you use an alias within the title, you need to find a way to get it properly underlined. Ok then,
+lets take a close look to index.rst of this template, expecially the first two lines:
+
+Architech's @board@ documentation
+============@board-size:=@==============
+
+Every time you want to place a set of characters of the same lenght of the "value" that replaces "@alias@",
+just write:
+
+@alias-size:<character>@
+
+inside your document, where "<character>" can be one of the following characters:
+* "^",
+* "=", or
+* "-"
+
+For board Tibidabo, its final index.rst will look like this:
+
+Architech's Tibidabo documentation
+==================================
+
+##############
+# Alias Keys #
+##############
+
+The aliases currently defined inside the documentation are the following:
+@project@
+    Used by the template inside file conf.py
+@copyright@
+    Used by the template inside file conf.py
+@version@
+    Used by the template inside file conf.py
+@release@
+    Used by the template inside file conf.py
+@htmlhelp@
+    Used by the template inside file conf.py
+@vendor@
+    Used by the template inside file conf.py
+@board@
+    The name of the board
+@meta-layer@
+    The name of the meta-layer defined inside architech-boards github account
+@manifest-repository@
+    The name of the repository (defined inside architech-boards account) containing "repo" manifest for the board (the file must be named "manifest.xml")
+@machine-name@
+    The name of the machine as defined under OpenEmbedded/Yocto meta-layer
+@board-splashscreen@
+    The name of the repository (defined inside architech-boards account) containing the information needed by the splashscren application
+@user@
+    The name of the user of the virtual machine SDK
+@user-password@
+    The password for user @user@ inside the virtual machine SDK
+@ubuntu-machine-name@
+    The name of the virtual machine (as it appears at command line)
+@vm-ip@
+    The defaul IP to assign to workstation, used in examples
+@target-ip@
+    The default IP to assign to the board, used in examples,
+@board-alias@
+    The alias for the board, that it, the name of the directory used to hold the board SDK inside the virtual machine
+@ubuntu-version@
+    The version of Ubuntu used in this SDK
+@distro-name@
+    The name of the default Yocto distribution to be used in examples
+@quickstart-image@
+    The name of the image recipe used within the quick start guide
+@console-device@
+    The name of the default device for the console
+@target-default-eth-if@
+    The name of the default network interface to use during examples. Used to differentiate Tibidabo from the other boards
+@eabi@
+    The specific eabi of the toolchain, introduced to differentiate among Hachiko SDKs
+@u-boot-start-addr@
+    The starting memory address that can be used by Hachiko u-boot commands
+@u-boot-end-addr@
+    The final memory address that can be used by Hachiko u-boot commands
+@unboxing@
+    If defined, causes the documentation to include unboxing.rst document
+@quick-lan-connector@
+    The name of the LAN connector where to plug the ethernet cable
+@qt-libs-alias@
+    The name of the directory (under directory /usr/local/Trolltech/ of the virtual machine SDK) where Qt Libraries gets installed
+@arm-toolchain-directory@
+    The name of the directory containing the cross-toolchain inside the board toolchain directory inside the SDK
+
+####################
+# Custom Documents #
+####################
+
+The documents that each board needs to provide are:
+to_replace.keys
+    contains the value for the alises
+source/board_poweron.rst
+    how to power on the board
+source/bootloader.rst
+    bootloader section under BSP
+source/boot.rst
+    how to boot the board, section under Board
+source/deploy_rootfs.rst
+    how to deploy the root file system on the final medium
+source/hardware.rst
+    hardware section inside Board
+source/index_custom.rst
+    this source is used to exand the template file index.rst
+    The text included inside index_custom.rst will be placed just after the board image
+source/kernel.rst
+    Linux kernel section used in BSP chapter
+source/meta_layer.rst
+    OpenEmbedded/Yocto meta-layer used in BSP chapter
+source/network.rst
+    Network section used in Board chapter
+source/quick_boot.rst
+    How to boot the board for the quick start guide chapter
+source/rootfs.rst
+    The rootfs generated by Yocto for the board. Used by BSP chapter
+source/serial_console.rst
+    How to get the serial console for the board
+source/video.rst
+    How to configure the video output for the board
+
+The optional documents are:
+source/unboxing.rst
+    A chapter for the unboxing of the board. If you want to have a chapter like this in your documentation you need to define
+    @unboxing@;unboxing
+    in your to_replace.keys
+
+#################
+# Custom Images #
+#################
+
+The images that the board documentation needs to provide are:
+source/_static/board.png
+    The picture of the board to be used in the home page
+source/_static/splashscreen_board_selection.jpg
+    The screenshot of the selection of the board within the splashscreen
+source/_static/splashscreen-board-menu.png
+    The screenshot of the splashscren board menu
+
+############################
+# Documentation generation #
+############################
+
+To generate the documentation you are going to need:
+* this template
+* the board customizations
+* a script able to generate the final documentation
+
+The script can be obtained by running this command:
+
+git clone -b dora https://github.com/castrofabrizio/documentation-generator.git
+
+you will find a script inside named:
+
+generate-documentation.sh
+
+that's our guy.
+Run it with -h option to get the information on how to run it.
+
+But how does it work?
+It starts by cleaning the output directory, which it consider to be a git repository (so it won't delete .git directory),
+it copies the template inside the output directory,
+it copies the board customization inside the output directory,
+it appends content to already existing documents, 
+it prepends content to already existing documents,
+it replaces the aliases with values along with the alias used inside titles.
+
+Ok, what doesn it means?
+It means that the template is used as base documentation. When it copies the board customization, if the board documentation
+defines a document with the same name used by the template, the template document gets replaced by the board one.
+Ok, but what if you don't want to overwrite the entire document and you just want to add something more to the document
+without rewriting it from scratch (or copying it)?
+In this case you have three options:
+- if you want to prepend something to the document, just create a file in your board documentation with a name like:
+  template-file.rst.prepend
+- if you want to append something to the document, just create a file in your board documentation with a name like:
+  template-file.rst.prepend
+- if you want to add content somewhere else inside the template document, well, you need to edit the template and figure
+  out how you can achieve the result, possibly without breaking existing documents.
+
+After you ran the generation script, you get in your output directory the final documentation sources. To get the corresponding
+html, go to the output directory and compile the sources:
+ cd /path/to/output/directory
+ make html
+
+use your browser to check the result:
+ firefox build/html/index.html
+
+Remember that, when you want to publish your modification, you need to push the final documentation to the official repository
+
+You may have noticed that repository documentation-generator.git contains another script, named generate-hachiko-tiny.sh (run it
+with -h option to get the help).
+Since Hachiko tiny and Hachiko are closely related to each other, but they have differences (like images, sections, alias values,
+etc.), there is the need to further customize the documentation provided by Hachiko documentation. You basically have just to 
+provide the values to replace with file "to_replace.keys" that are specific to the tiny version, and files you want to overwrite
+to the default one provided by Hachiko. Once you did that, just run the script and you get in the output directory the final
+documentation.
+
+
+
