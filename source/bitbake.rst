@@ -75,7 +75,14 @@ should be interested about are: **MACHINE**, **DISTRO**, **BB_NUMBER_THREADS** a
 *BB_NUMBER_THREADS* and *PARALLEL_MAKE* can help you speed up the build process. *BB_NUMBER_THREADS*
 is used to tell Bitbake how many tasks can be executed at the same time, while *PARALLEL_MAKE* contains
 the **-j** option to give to *make* program when issued. Both *BB_NUMBER_THREADS* and *PARALLEL_MAKE*
-are related to the number of processors of your (virtual) machine.
+are related to the number of processors of your (virtual) machine, and should be set with a number
+that is two times the number of processors on your (virtual) machine. If for example, your (virtual)
+machine has/sees four cores, then you should set those variables like this:
+
+.. host::
+
+ | BB_NUMBER_THREADS ?= "8"
+ | PARALLEL_MAKE ?= "-j 8"
 
 *bblayers.conf* is used to tell Bitbake which meta-layers to take into account when parsing/looking for
 recipes, machine, distributions, configuration files, bbclasses, and so on. The most important variable

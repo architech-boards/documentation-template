@@ -1,7 +1,8 @@
 .. _quick:
 
+*****************
 Quick start guide
-^^^^^^^^^^^^^^^^^
+*****************
 
 This document will guide you from importing the virtual machine to debugging an *Hello World!* example on a customized Linux distribution you will generate with **OpenEmbedded**/**Yocto** toolchain.
 
@@ -55,14 +56,17 @@ Build
 2. The first screen gives you two choices: *ArchiTech* and *3rd Party*. Choose *ArchiTech*.
 
 .. image:: _static/splash1.jpg
+    :align: center
 
 3. Select @board@ as board you want develop on. 
 
 .. image:: _static/splashscreen_board_selection.jpg
+    :align: center
 
 4. A new screen opens up from where you can perform a set of actions. Click on *Run bitbake* to obtain a terminal ready to start to build an image.
 
 .. image:: _static/splash3.jpg
+    :align: center
 
 5. Open *local.conf* file:
 
@@ -121,14 +125,17 @@ The time to create a simple *HelloWorld!* application using **Eclipse** has come
 1. Return to the **Splashscreen**, which we left on @board@ board screen, and click on *Develop with Eclipse*.
 
 .. image:: _static/splash4.jpg
+    :align: center
 
 2. Go to *File→ New→ Project*, select *C/C++→ C Project* and press *next* button.
 
 .. image:: _static/eclipse-newprj1.jpg
+    :align: center
 
 3. Insert *HelloWorld* as project name, select *Hello World ANSI C Autotools Project* and press *next* button.
 
 .. image:: _static/eclipse-newprj2.jpg
+    :align: center
 
 4. Insert *Author* field and click on *Finish* button. Select *Yes* on the *Open Associated Perspective?* question.
 
@@ -171,16 +178,19 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 * Locate your project and select it to bring up a new tabbed view in the *Debug Configurations* Dialog.
 
 .. image:: _static/debugform.jpg
+    :align: center
 
 * Insert in *C/C++ Application* the filepath (on your host machine) of the compiled binary.
 * Click on *New* button near the drop-down menu in the *Connection* field.
 * Select *TCF* icon.
 
 .. image:: _static/tcf1.jpg
+    :align: center
 
 * Insert in *Host Name* and *Connection Name* fields the IP address of the target board. (e.g. @target-ip@)
 
 .. image:: _static/tcf2.jpg
+    :align: center
 
 * Then press *Finish*.
 
@@ -189,14 +199,17 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 * Enter the absolute path on the target into which you want to deploy the cross-compiled application. Use the *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
 
 .. image:: _static/remotepath.png
+    :align: center
 
 * Enter also in the path the name of the application you want to debug. (e.g. Hello)
 
 .. image:: _static/debug2.jpg
+    :align: center
 
 * Select *Debugger* tab
 
 .. image:: _static/gdb.jpg
+    :align: center
 
 * In GDB Debugger field, insert the filepath of gdb for your toolchain
 

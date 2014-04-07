@@ -1,5 +1,6 @@
+************@board-size:*@**************
 Architech's @board@ documentation
-============@board-size:=@==============
+************@board-size:*@**************
 
 .. image:: _static/board.png
     :align: center
@@ -15,7 +16,7 @@ the chapter that interests you the most.
 Furthermore, we encourage you to read the `official Yocto Project documentation <https://www.yoctoproject.org/documentation>`_.
 
 Notations
----------
+=========
 
 Throughout this guide, there are commands, file system paths, etc., that can either refer to the
 machine (real or virtual) you use to run the SDK or to the board.
@@ -29,7 +30,7 @@ machine (real or virtual) you use to run the SDK or to the board.
  This box will be used to refer to @board@ board
 
 Chapters
---------
+========
 
 .. toctree::
   :maxdepth: 2
@@ -43,4 +44,3 @@ Chapters
   tools
   board
   faq
-

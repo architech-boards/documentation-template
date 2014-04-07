@@ -5,19 +5,38 @@ The easiest way to setup and keep all the necessary meta-layers in sync with ups
 is achieved by means of Google's **repo** tool.
 The following steps are necessary for a clean installation:
 
-1) Install repo tool, if you already have it go to step 2
+1) Install repo tool, if you already have it go to step 4
 
-2) Open a terminal
+.. host::
 
-3) Change the current directory to the directory where you want all the meta-layers to be downloaded into
+ | mkdir -p ~/bin
+ | sudo apt-get install curl
+ | curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+ | chmod a+x ~/bin/repo
 
-4) Download the manifest
+2) Make sure directory *~/bin* is included in your *PATH* variable by printing its content
+
+.. host::
+
+ echo $PATH
+
+3) If *~/bin* directory is not included, add this line to your *~/.bashrc*
+
+.. host::
+
+ export PATH="$PATH:${HOME}/bin"
+
+4) Open a new terminal
+
+5) Change the current directory to the directory where you want all the meta-layers to be downloaded into
+
+6) Download the manifest
 
 .. host::
 
  repo init -u https://github.com/architech-boards/@manifest-repository@.git -b dora -m manifest.xml
 
-5) Download the repositories
+7) Download the repositories
 
 .. host::
 

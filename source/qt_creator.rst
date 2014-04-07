@@ -72,28 +72,34 @@ To create the project follow these steps:
 1. Use the **Welcome Screen** to run Qt Creator by selecting *Architech→@board@→Develop with Qt Creator*
 
 .. image:: _static/qtCreatorStart.png
+	   :align: center
 
 2. Go to *File -> Open File or Project* to open **QtHelloWorld.pro** file located in */home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/QtHelloWorld/* directory.
 
 3. Click on "QtHelloWorld" icon to open project menu.
 
 .. image:: _static/qt-1.png
+	   :align: center
 
 4. Select the build configuration: **Desktop - Debug**.
 
 .. image:: _static/qt-2.png
+	   :align: center
 
 5. To build the project, click on the bottom-left icon.
 
 .. image:: _static/qt-3.png
+	   :align: center
 
 6. Once you built the project, click on the green triangle to run it.
 
 .. image:: _static/qt-4.png
+	   :align: center
 
 7. Congratulations! You just built your first Qt application for x86.
 
 .. image:: _static/qt-5.png
+	   :align: center
 
 In the next section we will debug our Hello World! application directly on @board@.
 
@@ -103,6 +109,7 @@ Debug Hello World project
 8. Select build configuration: **@board-alias@ - Debug** and build the project.
 
 .. image:: _static/qt-10.png
+	   :align: center
 
 9. Copy the generated executable to the target board (e.g /home/root/).
 
@@ -120,10 +127,12 @@ Debug Hello World project
     | To do this go with the mouse at line 6 and click with the right button to open the menu, select **Set brackpoint at line 6**
 
 .. image:: _static/qt-6.png
+	   :align: center
 
 12. Go to *Debug→Start Debugging→Attach To Remote Debug Server*, a form named "Start Debugger" will appear, insert the following data:
 
 .. image:: _static/qt-7.png
+	   :align: center
 
 - Kit: **@board-alias@**
 
@@ -132,6 +141,7 @@ Debug Hello World project
 Press **OK** button to start the debug.
 
 .. image:: _static/qt-8.png
+	   :align: center
 
 13. The hotkeys to debug the application are:
 
@@ -144,6 +154,7 @@ Press **OK** button to start the debug.
 - **F5**: Continue, or press this icon:
 
 .. image:: _static/qt-9.png
+	   :align: center
 
 14. To successfully exit from the debug it is better to close the graphical application from the target board with the mouse by clicking on the 'X' symbol. 
 

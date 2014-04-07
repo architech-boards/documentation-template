@@ -39,6 +39,7 @@ The specification for to_replace.keys is:
 
 The use of aliases is very simple. An .rst document defined within the template or in the board
 documentation uses the alias. For example, the first line of file source/index.rst of the template is:
+
 Architech's @board@ documentation
 
 @board@ is defined inside to_replace.manifest. Tibidabo to_replace.keys has this line:
@@ -49,17 +50,18 @@ will be:
 Architech's Tibidabo documentation
 
 However, if the string you defined an alias for gets replaced within a title you have a problem.
-Sphinx requires that a Title has to be underlined by a set of characters of the same lenght of the title.
+Sphinx requires that a Title has to be underlined by a set of characters of (at least) the same lenght of the title.
 For example:
 
 My Title
 ^^^^^^^^
 
-Anyway, if you use an alias within the title, you need to find a way to get it properly underlined. Ok then,
-lets take a close look to index.rst of this template, expecially the first two lines:
+Anyway, if you use an alias within the title, you need to find a way to get it properly underlined (or overlined).
+Ok then, lets take a close look to index.rst of this template, expecially the first two lines:
 
+************@board-size:*@**************
 Architech's @board@ documentation
-============@board-size:=@==============
+************@board-size:*@**************
 
 Every time you want to place a set of characters of the same lenght of the "value" that replaces "@alias@",
 just write:
@@ -67,14 +69,18 @@ just write:
 @alias-size:<character>@
 
 inside your document, where "<character>" can be one of the following characters:
-* "^",
-* "=", or
-* "-"
+* '#',
+* '*',
+* '=',
+* '-',
+* '^', or
+* '"'.
 
 For board Tibidabo, its final index.rst will look like this:
 
+**********************************
 Architech's Tibidabo documentation
-==================================
+**********************************
 
 ##############
 # Alias Keys #
@@ -154,7 +160,7 @@ source/bootloader.rst
 source/boot.rst
     how to boot the board, section under Board
 source/deploy_rootfs.rst
-    how to deploy the root file system on the final medium
+    how to deploy the root file system on the final medium. Used by the quick start guide
 source/hardware.rst
     hardware section inside Board
 source/index_custom.rst

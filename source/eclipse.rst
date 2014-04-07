@@ -34,6 +34,7 @@ You can create two types of projects: Autotools-based, or Makefile-based. This s
 Launch Eclipse using Architech Splashscreen just click on **Develop with Eclipse**.
 
 .. image:: _static/run_eclipse.png
+    :align: center
 
 To create a project based on a Yocto template and then display the source code, follow these steps:
 
@@ -44,6 +45,7 @@ To create a project based on a Yocto template and then display the source code, 
 * Select *Hello World ANSI C Autotools Project*. This is an Autotools-based project based on a Yocto Project template.
 
 .. image:: _static/newproject.jpg
+    :align: center
 
 * Put a name in the Project *name:* field. Do not use hyphens as part of the name.
 * Click *Next*.
@@ -56,10 +58,12 @@ To create a project based on a Yocto template and then display the source code, 
  If the "open perspective" prompt appears, click *Yes* so that you enter in C/C++ perspective. The left-hand navigation panel shows your project. You can display your source by double clicking on the project source file.
 
 .. image:: _static/projectexplorer.jpg
+    :align: center
  
 * Select *Project→Properties→Yocto Project Settings* and check *Use project specific settings*
 
 .. image:: _static/projectsetting.jpg
+    :align: center
 
 Building the Project
 --------------------
@@ -79,6 +83,7 @@ To add more libraries to compile:
  All libraries must be located in */home/@user@/architech_sdk/architech/@board-alias@/sysroot* subdirectories.
 
 .. image:: _static/autotools.jpg
+    :align: center
 
 .. index:: Debug
 
@@ -99,16 +104,19 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 * Locate your project and select it to bring up a new tabbed view in the *Debug Configurations* Dialog.
 
 .. image:: _static/debugform.jpg
+    :align: center
 
 * Insert in *C/C++ Application* the filepath of your application binary on your host machine.
 * Click on "New" button near the drop-down menu in the *Connection* field.
 * Select *TCF* icon.
 
 .. image:: _static/tcf1.jpg
+    :align: center
 
 * Insert in *Host Name* and *Connection Name* fields the IP address of the target board. (e.g. @target-ip@)
 
 .. image:: _static/tcf2.jpg
+    :align: center
 
 * Press *Finish*.
 
@@ -117,14 +125,17 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 * Enter the absolute path on the target into which you want to deploy the application. Use *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
 
 .. image:: _static/remotepath.png
+    :align: center
 
 * Enter also in the path the name of the application you want to debug. (e.g. Hello)
 
 .. image:: _static/debug2.jpg
+    :align: center
 
 * Select *Debugger* tab
 
 .. image:: _static/gdb.jpg
+    :align: center
 
 * In GDB Debugger field, insert the filepath of gdb for your toolchain
 
