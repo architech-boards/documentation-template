@@ -24,13 +24,13 @@ Luckily, there is a script that takes care of it, all you need to do is:
 
 .. host::
 
- source /path/to/oe-init-build-env /path/to/build/directory
+ | source /path/to/oe-init-build-env /path/to/build/directory
 
 Inside the virtual machine, you can find *oe-init-build-env* script inside:
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky
 
 If you omit the build directory path, a directory named **build** will be created under your 
 current working directory.
@@ -39,7 +39,7 @@ By default, with the SDK, the script is used like this:
 
 .. host::
 
- source /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/oe-init-build-env
+ | source /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/oe-init-build-env
 
 Your current working directory changes to such a directory and you can customize configurations
 files (that the environment script put in place for you when creating the directory), run Bitbake
@@ -55,7 +55,7 @@ The default build directory for @board@ is located under:
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/build
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build
 
 and the splash screen has a facility (a button located under @board@'s page) that can take you
 there with the right environment already in place so you are productive right away.
@@ -100,27 +100,27 @@ The first suggestion is to run:
 
 .. host::
 
- bitbake -h
+ | bitbake -h
 
 Bitbake will show you all the options it can be run with.
 During normal activity you will need to simply run a command like:
 
 .. host::
 
- bitbake <recipe name>
+ | bitbake <recipe name>
 
 for example:
 
 .. host::
 
- bitbake core-image-minimal-dev
+ | bitbake core-image-minimal-dev
 
 Such a comman will build bootloader, Linux kernel and a root file system.
 *core-image-minimal-dev* tells Bitbake to execute whatever recipe
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/meta/recipes-extended/images/core-image-lsb-dev.bb
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/meta/recipes-extended/images/core-image-lsb-dev.bb
 
 tells it to do, so, you just place the name of the recipe without the extension.
 
@@ -129,7 +129,7 @@ like recompiling the Linux kernel, no matter what. That action can be achieved w
 
 .. host::
     
- bitbake -c compile -f virtual/kernel
+ | bitbake -c compile -f virtual/kernel
 
 where *-c compile* states the you want to execute the *do_compile* task and *-f* forces Bitbake
 to execute the command even if it thinks that there are no modifications and hence there is no need to 

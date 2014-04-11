@@ -26,7 +26,7 @@ Qt Creator
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/sysroot
+ | /home/@user@/architech_sdk/architech/@board-alias@/sysroot
 
 4. Copy the Qt Libraries to the board media used to boot
 
@@ -52,7 +52,7 @@ If you based your root file system on *qt4e-demo-image*, be sure you execute thi
 
 .. board::
 
- /etc/init.d/qtdemo stop
+ | /etc/init.d/qtdemo stop
 
 to stop the execution of the demo application.
 
@@ -71,7 +71,7 @@ To create the project follow these steps:
 
 1. Use the **Welcome Screen** to run Qt Creator by selecting *Architech→@board@→Develop with Qt Creator*
 
-.. image:: _static/qtCreatorStart.png
+.. image:: _static/qtCreatorStart.jpg
 	   :align: center
 
 2. Go to *File -> Open File or Project* to open **QtHelloWorld.pro** file located in */home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/QtHelloWorld/* directory.
@@ -83,7 +83,7 @@ To create the project follow these steps:
 
 4. Select the build configuration: **Desktop - Debug**.
 
-.. image:: _static/qt-2.png
+.. image:: _static/qt-2.jpg
 	   :align: center
 
 5. To build the project, click on the bottom-left icon.
@@ -106,32 +106,32 @@ In the next section we will debug our Hello World! application directly on @boar
 Debug Hello World project
 -------------------------
 
-8. Select build configuration: **@board-alias@ - Debug** and build the project.
+1. Select build configuration: **@board-alias@ - Debug** and build the project.
 
-.. image:: _static/qt-10.png
+.. image:: _static/qt-10.jpg
 	   :align: center
 
-9. Copy the generated executable to the target board (e.g /home/root/).
+2. Copy the generated executable to the target board (e.g /home/root/).
 
 .. host::
 
-  scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-Hachiko-Debug/QtHelloWorld root@@target-ip@:/home/root
+  | scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-Hachiko-Debug/QtHelloWorld root@@target-ip@:/home/root
 
-10. Use minicom to launch gdbserver application on the target board:
+3. Use minicom to launch gdbserver application on the target board:
 
 .. board::
 
-  gdbserver :10000 QtHelloWorld -qws
+  | gdbserver :10000 QtHelloWorld -qws
 
-11. | In Qt Creator, open the source file main.cpp and set a breakpoint at line 6. 
+4. | In Qt Creator, open the source file main.cpp and set a breakpoint at line 6. 
     | To do this go with the mouse at line 6 and click with the right button to open the menu, select **Set brackpoint at line 6**
 
 .. image:: _static/qt-6.png
 	   :align: center
 
-12. Go to *Debug→Start Debugging→Attach To Remote Debug Server*, a form named "Start Debugger" will appear, insert the following data:
+5. Go to *Debug→Start Debugging→Attach To Remote Debug Server*, a form named "Start Debugger" will appear, insert the following data:
 
-.. image:: _static/qt-7.png
+.. image:: _static/qt-7.jpg
 	   :align: center
 
 - Kit: **@board-alias@**
@@ -143,7 +143,7 @@ Press **OK** button to start the debug.
 .. image:: _static/qt-8.png
 	   :align: center
 
-13. The hotkeys to debug the application are:
+6. The hotkeys to debug the application are:
 
 - **F10**: Step over
 
@@ -156,5 +156,5 @@ Press **OK** button to start the debug.
 .. image:: _static/qt-9.png
 	   :align: center
 
-14. To successfully exit from the debug it is better to close the graphical application from the target board with the mouse by clicking on the 'X' symbol. 
+7. To successfully exit from the debug it is better to close the graphical application from the target board with the mouse by clicking on the 'X' symbol. 
 

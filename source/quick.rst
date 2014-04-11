@@ -72,13 +72,13 @@ Build
 
 .. host::
 
- gedit conf/local.conf
+ | gedit conf/local.conf
 
 6. Go to the end of the file and add the following lines:
 
 .. host::
 
- | EXTRA_IMAGE_FEATURES = "tools-debug debug-tweaks"
+ | EXTRA_IMAGE_FEATURES_append = " tools-debug debug-tweaks"
  | IMAGE_INSTALL_append = " tcf-agent"
 
 This will trigger the installation of a features set onto the final root file system, like *tcf-agent* and *gdbserver*.
@@ -89,19 +89,19 @@ This will trigger the installation of a features set onto the final root file sy
 
 .. host::
 
- bitbake @quickstart-image@
+ | bitbake @quickstart-image@
 
 At the end of the build process, the image will be saved inside directory:
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@
 
 9. Setup *sysroot* directory on your host machine:
 
 .. host::
 
- sudo tar -xzf /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/@quickstart-image@-@machine-name@.tar.bz2 -C /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
+ | sudo tar -xzf /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/@quickstart-image@-@machine-name@.tar.bz2 -C /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
 
 .. note::
 
@@ -134,7 +134,7 @@ The time to create a simple *HelloWorld!* application using **Eclipse** has come
 
 3. Insert *HelloWorld* as project name, select *Hello World ANSI C Autotools Project* and press *next* button.
 
-.. image:: _static/eclipse-newprj2.jpg
+.. image:: _static/eclipse-new-project.jpg
     :align: center
 
 4. Insert *Author* field and click on *Finish* button. Select *Yes* on the *Open Associated Perspective?* question.
@@ -169,7 +169,7 @@ then the ethernet connection is ok. Enable the remote debug with Yocto by typing
 
 .. board::
 
- /etc/init.d/tcf-agent restart
+ | /etc/init.d/tcf-agent restart
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
@@ -198,7 +198,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 * Enter the absolute path on the target into which you want to deploy the cross-compiled application. Use the *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
 
-.. image:: _static/remotepath.png
+.. image:: _static/remotepath.jpg
     :align: center
 
 * Enter also in the path the name of the application you want to debug. (e.g. Hello)
@@ -215,7 +215,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-@eabi@/arm-poky-linux-@eabi@-gdb
+ | /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-@eabi@/arm-poky-linux-@eabi@-gdb
 
 * In *Debugger* window there is a tab named *Shared Library*, click on it.
 * Add the libraries paths *lib* and *usr/lib* of the rootfs (which must be the same used in the target board)

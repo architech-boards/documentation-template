@@ -38,14 +38,14 @@ The specification for to_replace.keys is:
 * to mark a new line, just use \n
 
 The use of aliases is very simple. An .rst document defined within the template or in the board
-documentation uses the alias. For example, the first line of file source/index.rst of the template is:
+documentation uses the alias. For example, the second line of file source/index.rst of the template is:
 
 Architech's @board@ documentation
 
 @board@ is defined inside to_replace.manifest. Tibidabo to_replace.keys has this line:
 @board@;Tibidabo
 
-This means that when the final documentation gets generated, the first line of Tibidabo index.rst file
+This means that when the final documentation gets generated, the second line of Tibidabo index.rst file
 will be:
 Architech's Tibidabo documentation
 
@@ -53,11 +53,22 @@ However, if the string you defined an alias for gets replaced within a title you
 Sphinx requires that a Title has to be underlined by a set of characters of (at least) the same lenght of the title.
 For example:
 
+1) this is good
+
 My Title
 ^^^^^^^^
 
+2) this is good
+
+My Title
+^^^^^^^^^
+
+3) this is wrong
+My Title
+^^^^^^^
+
 Anyway, if you use an alias within the title, you need to find a way to get it properly underlined (or overlined).
-Ok then, lets take a close look to index.rst of this template, expecially the first two lines:
+Ok then, lets take a close look to index.rst of this template, expecially the first three lines:
 
 ************@board-size:*@**************
 Architech's @board@ documentation
@@ -81,6 +92,13 @@ For board Tibidabo, its final index.rst will look like this:
 **********************************
 Architech's Tibidabo documentation
 **********************************
+
+Please, use this convention for titles:
+*, with overline, for chapters
+=, for sections
+-, for subsections
+^, for subsubsections
+", for paragraphs
 
 ##############
 # Alias Keys #
@@ -220,12 +238,14 @@ that's our guy.
 Run it with -h option to get the information on how to run it.
 
 But how does it work?
-It starts by cleaning the output directory, which it consider to be a git repository (so it won't delete .git directory),
+It starts by compiling a c++ program
+it cleans the output directory, which it consider to be a git repository (so it won't delete directory .git),
 it copies the template inside the output directory,
 it copies the board customization inside the output directory,
 it appends content to already existing documents, 
 it prepends content to already existing documents,
-it replaces the aliases with values along with the alias used inside titles.
+it replaces the aliases with values along with the alias used inside titles, and
+it replaces specific section of the sources to improve the final result in HTML.
 
 Ok, what doesn it means?
 It means that the template is used as base documentation. When it copies the board customization, if the board documentation
@@ -258,5 +278,79 @@ provide the values to replace with file "to_replace.keys" that are specific to t
 to the default one provided by Hachiko. Once you did that, just run the script and you get in the output directory the final
 documentation.
 
+######################
+# Custom admonitions #
+######################
 
+Since the SDK makes heavy use of commands examples that have to executed on the host or on the target machine, we decided to highlight
+the difference by introducing a couple of custom admonitions.
+When you want to show text related to the host use "host" admonition, for example:
+
+.. host::
+
+ cp foo /path/to/destination
+
+Similarly, when you want to show text related to the board use "board" admonition, for example:
+
+.. board::
+
+ /etc/init.d/tcf-agent restart
+
+However, we got pure result with very long lines. To improve that we decided prismjs (that is a javascript plugin) was the best solution.
+Since prismjs is not directly integrated directly in sphinx, we decided to insert it in the final document as raw html.
+You can use it with host and board admonitions when you work with multiple lines, like for example:
+
+.. host::
+
+ | Line 1
+ | Line 2
+
+The parser we inserted to make this possible is not very flexible. Make sure that the admonition options and content lines are indented
+in exactly the same way. When defining a line with content, leave at least one space after "|".
+The plugin displays line numbers, and it also lets you define the starting number you want to use. Here is an example on how you can achieve
+that:
+
+.. host::
+ :start: 134
+
+ | if( test )
+ | {
+ |    variable = value;
+ | }
+
+If you omit start option the value used will be 1.
+
+It is also possible to highlight source code syntax for a lot of languages. An example of c code highlight can be this one:
+
+ .. host::
+ :lang: c
+
+ | if( test )
+ | {
+ |    variable = value;
+ | }
+
+all these languages are supported:
+ markup
+ css
+ clike
+ javascript
+ java
+ php
+ coffeescript
+ scss
+ bash
+ c
+ cpp
+ python
+ sql
+ groovy
+ http
+ ruby
+ gherkin
+ csharp
+ go
+ nsis
+
+Of course, you can use both :lang: and :start: options at the same time, like you would do with normal sphinx code.
 

@@ -168,14 +168,14 @@ To access the shared folder inside the virtual machine you need to be *root* or 
 
 6. The most comfortable way is to add user *@user@* to group *vboxsf* directly from the command line of the virtual machine, so click the icon *Start* button on the toolbar.
 
-.. image:: /_static/vbStart.png
+.. image:: _static/vbStart.png
     :align: center
 
 7. Open a new terminal inside the virtual machine (CTRL+ALT+t) and execute this command
 
 .. host::
 
- sudo usermod -a -G vboxsf @user@
+ | sudo usermod -a -G vboxsf @user@
 
 .. note::
 

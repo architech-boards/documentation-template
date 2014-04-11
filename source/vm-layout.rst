@@ -16,49 +16,49 @@ The virtual machine provided by Architech contains:
 All the aforementioned tools are installed under directory **/home/@user@/architech_sdk**,
 its sub-directories main layout is the following:
 
-::
+.. host::
 
-    architech_sdk
-        |
-        |_ splashscreen
-        |
-        |_ spashscreen-interface
-        |
-        |_ architech-manifest
-        |
-        |_ architech
-            |
-            |_ ...
-            |
-            |_ @board-alias@
-                |
-                |_ eclipse
-                |
-                |_ java
-                |
-                |_ qtcreator
-                |
-                |_ splashscreen
-                |
-                |_ sysroot
-                |
-                |_ toolchain
-                |
-                |_ workspace
-                |   |
-                |   |_ eclipse
-                |   |
-                |   |_ qt
-                |
-                |_ yocto
-                    |
-                    |_ build
-                    |
-                    |_ poky
-                    |
-                    |_ @meta-layer@
-                    |
-                    |_ ...
+ | architech_sdk
+ |     |
+ |     |_ splashscreen
+ |     |
+ |     |_ spashscreen-interface
+ |     |
+ |     |_ architech-manifest
+ |     |
+ |     |_ architech
+ |         |
+ |         |_ ...
+ |         |
+ |         |_ @board-alias@
+ |             |
+ |             |_ eclipse
+ |             |
+ |             |_ java
+ |             |
+ |             |_ qtcreator
+ |             |
+ |             |_ splashscreen
+ |             |
+ |             |_ sysroot
+ |             |
+ |             |_ toolchain
+ |             |
+ |             |_ workspace
+ |             |   |
+ |             |   |_ eclipse
+ |             |   |
+ |             |   |_ qt
+ |             |
+ |             |_ yocto
+ |                 |
+ |                 |_ build
+ |                 |
+ |                 |_ poky
+ |                 |
+ |                 |_ @meta-layer@
+ |                 |
+ |                 |_ ...
 
 **@board-alias@** directory contains all the tools composing the ArchiTech SDK for @board@ board,
 along with all the information needed by the splash screen application. In particular:
@@ -82,15 +82,14 @@ It can be opened by clicking on its *Desktop* icon.
     :align: center   
 
 Once started, you can can choose if you want to work with Architech's boards or with partners'
-ones.
+ones. For @board@, choose **ArchiTech**.
 
-.. image:: _static/splashscreen.png
+.. image:: _static/splashscreen-architech.png
     :align: center
 
-For @board@, choose **ArchiTech**.
 A list of all available Architech's boards will open, select @board@.
 
 A list of actions related to @board@ that can be activated will appear.
 
-.. image:: _static/splashscreen-board-menu.png
+.. image:: _static/splashscreen-board-menu.jpg
     :align: center

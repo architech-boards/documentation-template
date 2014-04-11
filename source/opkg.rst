@@ -15,49 +15,49 @@ Useful commands:
 
 .. board::
 
- opkg update
+ | opkg update
 
 - list available packages:
 
 .. board::
 
- opkg list
+ | opkg list
 
 - list installed packages:
 
 .. board::
 
- opkg list-installed 
+ | opkg list-installed 
 
 - install packages:
 
 .. board::
 
- opkg install <package 1> <package 2> ... <package n> 
+ | opkg install <package 1> <package 2> ... <package n> 
 
 - list package providing <file>
 
 .. board::
 
- opkg search <file>
+ | opkg search <file>
 
 - Show package information
 
 .. board::
 
- opkg info <package>
+ | opkg info <package>
 
 - show package dependencies:
 
 .. board::
 
- opkg whatdepends <package> 
+ | opkg whatdepends <package> 
 
 - remove packages:
 
 .. board::
 
- opkg remove <package 1> <package 2> ... <package n>
+ | opkg remove <package 1> <package 2> ... <package n>
 
 Force Bitbake to install Opkg in the final image
 ------------------------------------------------
@@ -67,13 +67,13 @@ To force *Bitbake* to include it in the next build, edit your configuration file
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/conf/local.conf
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/conf/local.conf
 
 and add this line to it:
 
-::
+.. host::
 
- IMAGE_FEATURES_append = " package-management"
+ | IMAGE_FEATURES_append = " package-management"
 
 
 Create a repository
@@ -86,19 +86,19 @@ You can easily setup a new repository for your custom builds:
 
 .. host::
 
- sudo apt-get install apache2
+ | sudo apt-get install apache2
 
 2) Configure apache web server to "see" the packages you built, for example:
 
 .. host::
 
- sudo ln -s /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/ipk/ @board-alias@-ipk
+ | sudo ln -s /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/ipk/ @board-alias@-ipk
 
 3) Create a new configuration file on the target (for example */etc/opkg/my_packages.conf*) containing lines like this one to index the packages related to a particular machine:
 
 .. board::
 
- src/gz @machine-name@ http://@vm-ip@:8000/@board-alias@-ipk/@machine-name@
+ | src/gz @machine-name@ http://@vm-ip@:8000/@board-alias@-ipk/@machine-name@
  
 To actually reach the virtual machine we set up a port forwarding mechanism in Chapter :ref:`vm_label` so that every time the board communicates with the workstation on port 8000, VirtualBox actually turns the communication directly to the virtual machine operating system on port 80 where it finds *apache* waiting for it.
 
@@ -108,7 +108,7 @@ To actually reach the virtual machine we set up a port forwarding mechanism in C
 
 .. board::
 
- opkg update 
+ | opkg update 
 
 Update repository index
 -----------------------
@@ -117,4 +117,4 @@ Sometimes, you need to force bitbake to rebuild the index of packages by means o
 
 .. host::
 
- bitbake package-index
+ | bitbake package-index

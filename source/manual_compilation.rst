@@ -6,13 +6,13 @@ There are two common ways to get that:
 
 .. host::
 
- bitbake meta-toolchain
+ | bitbake meta-toolchain
 
 or
 
 .. host::
 
- bitbake <image recipe name> -c populate_sdk
+ | bitbake <image recipe name> -c populate_sdk
 
 The first method provides you the toolchain, you need to provide the file system to compile against,
 the second method provides both the toolchain and the file system along with -dev and -dbg packages
@@ -25,12 +25,12 @@ To use it just do:
 
 .. host::
 
- source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment
+ | source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment
 
 to compile Linux user-space stuff. If you want to compile kernel or bootloader then do:
 
 .. host::
 
- source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment-nofs
+ | source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment-nofs
 
 and you are ready to go.

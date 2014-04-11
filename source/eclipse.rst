@@ -33,7 +33,7 @@ Creating the Project
 You can create two types of projects: Autotools-based, or Makefile-based. This section describes how to create Autotools-based projects from within the **Eclipse IDE**.
 Launch Eclipse using Architech Splashscreen just click on **Develop with Eclipse**.
 
-.. image:: _static/run_eclipse.png
+.. image:: _static/run_eclipse.jpg
     :align: center
 
 To create a project based on a Yocto template and then display the source code, follow these steps:
@@ -44,7 +44,7 @@ To create a project based on a Yocto template and then display the source code, 
 * Expand *Yocto Project ADT Autotools Project*.
 * Select *Hello World ANSI C Autotools Project*. This is an Autotools-based project based on a Yocto Project template.
 
-.. image:: _static/newproject.jpg
+.. image:: _static/eclipse-new-project.jpg
     :align: center
 
 * Put a name in the Project *name:* field. Do not use hyphens as part of the name.
@@ -124,7 +124,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 * Enter the absolute path on the target into which you want to deploy the application. Use *Browse* button near *Remote Absolute File Path for C/C++Application:* field. No password is needed.
 
-.. image:: _static/remotepath.png
+.. image:: _static/remotepath.jpg
     :align: center
 
 * Enter also in the path the name of the application you want to debug. (e.g. Hello)
@@ -141,7 +141,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-@eabi@/arm-poky-linux-@eabi@-gdb
+ | /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-@eabi@/arm-poky-linux-@eabi@-gdb
 
 * In *Debugger* window there is a tab named *Shared Library*, click on it.
 * Add the libraries paths *lib* and *usr/lib* of the rootfs (which must be the same used in the target board)

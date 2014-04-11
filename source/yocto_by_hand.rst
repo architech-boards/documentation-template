@@ -18,13 +18,13 @@ The following steps are necessary for a clean installation:
 
 .. host::
 
- echo $PATH
+ | echo $PATH
 
 3) If *~/bin* directory is not included, add this line to your *~/.bashrc*
 
 .. host::
 
- export PATH="$PATH:${HOME}/bin"
+ | export PATH="$PATH:${HOME}/bin"
 
 4) Open a new terminal
 
@@ -34,13 +34,13 @@ The following steps are necessary for a clean installation:
 
 .. host::
 
- repo init -u https://github.com/architech-boards/@manifest-repository@.git -b dora -m manifest.xml
+ | repo init -u https://github.com/architech-boards/@manifest-repository@.git -b dora -m manifest.xml
 
 7) Download the repositories
 
 .. host::
 
- repo sync
+ | repo sync
 
 By the end of the last step, all the necessary meta-layers should be in place, anyway, you still need to 
 edit your **local.conf** and **bblayers.conf** to compile for @machine-name@ machine and using all the downloaded
@@ -56,13 +56,13 @@ When you want your local repositories to be updated, just:
 
 .. host::
 
- repo sync
+ | repo sync
 
 If you really want to download everything by hand, just clone dora branch of @meta-layer@:
 
 .. host::
 
- git clone -b dora https://github.com/architech-boards/@meta-layer@.git
+ | git clone -b dora https://github.com/architech-boards/@meta-layer@.git
 
 and have a look at the README file.
 
