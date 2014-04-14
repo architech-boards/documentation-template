@@ -101,7 +101,7 @@ At the end of the build process, the image will be saved inside directory:
 
 .. host::
 
- | sudo tar -xzf /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/@quickstart-image@-@machine-name@.tar.bz2 -C /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
+ | sudo tar -xjf /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/@quickstart-image@-@machine-name@.tar.bz2 -C /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
 
 .. note::
 
