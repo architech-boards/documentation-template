@@ -32,15 +32,15 @@ Qt Creator
 
 .. host::
 
- | sudo mkdir -p /path/to/board/sysroot/**usr/local/Trolltech/**
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/\* /path/to/board/sysroot/**usr/local/Trolltech/**
+ | sudo mkdir -p /path/to/board/sysroot/usr/local/Trolltech/
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* /path/to/board/sysroot/usr/local/Trolltech/
 
 5. Copy the Qt Libraries to your sdk sysroot directory
 
 .. host::
 
  | sudo mkdir -p ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/\* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech
 
 6. Unmount the media used to boot the board from your computer and insert it into the board
 
@@ -136,7 +136,11 @@ Debug Hello World project
 
 - Kit: **@board-alias@**
 
-- Local executable: **/home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-@board-alias@-Debug/QtHelloWorld**
+- Local executable:
+
+.. host::
+
+ | /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-@board-alias@-Debug/QtHelloWorld
 
 Press **OK** button to start the debug.
 
