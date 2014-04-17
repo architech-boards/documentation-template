@@ -163,6 +163,12 @@ The aliases currently defined inside the documentation are the following:
     The name of the directory (under directory /usr/local/Trolltech/ of the virtual machine SDK) where Qt Libraries gets installed
 @arm-toolchain-directory@
     The name of the directory containing the cross-toolchain inside the board toolchain directory inside the SDK
+@quickstart-image-extension@
+	The extension of the tarball containing the rootfs built and used in the quick start guide (e.g. tar.bz2 or tar.gz)
+@quickstart-image-tar-options@
+	The options to use to extract the tarball containing the rootfs built and used in the quick start guide (e.g. -xjf or -xzf)
+@meta-layer-remote@
+	The URI of the remote server hosting the board meta-layer repository, for example: git://git.yoctoproject.org, https://github.com/architech-boards, etc.
 
 ####################
 # Custom Documents #

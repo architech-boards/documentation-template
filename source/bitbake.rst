@@ -70,8 +70,19 @@ directory inside your build directory, we are talking about **local.conf** and *
 *local.conf* contains your customizations for the build process, the most important variables you
 should be interested about are: **MACHINE**, **DISTRO**, **BB_NUMBER_THREADS** and **PARALLEL_MAKE**.
 *MACHINE* defines the target machine you want compile against. The proper value for @board@ is 
-@machine-name@.
-*DISTRO* let you choose which distribution to use to build the root file systems for the board.
+@machine-name@:
+
+.. host::
+
+ | MACHINE ??= "@machine-name@"
+
+*DISTRO* let you choose which distribution to use to build the root file systems for the board. The
+default distribution to use with the board is:
+
+.. host::
+
+ | DISTRO ?= "@distro-name@"
+
 *BB_NUMBER_THREADS* and *PARALLEL_MAKE* can help you speed up the build process. *BB_NUMBER_THREADS*
 is used to tell Bitbake how many tasks can be executed at the same time, while *PARALLEL_MAKE* contains
 the **-j** option to give to *make* program when issued. Both *BB_NUMBER_THREADS* and *PARALLEL_MAKE*
@@ -113,14 +124,14 @@ for example:
 
 .. host::
 
- | bitbake core-image-minimal-dev
+ | bitbake @quickstart-image@
 
 Such a comman will build bootloader, Linux kernel and a root file system.
-*core-image-minimal-dev* tells Bitbake to execute whatever recipe
+*@quickstart-image@* tells Bitbake to execute whatever recipe
 
 .. host::
 
- | /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/meta/recipes-extended/images/core-image-lsb-dev.bb
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/meta/recipes-extended/images/@quickstart-image@.bb
 
 tells it to do, so, you just place the name of the recipe without the extension.
 

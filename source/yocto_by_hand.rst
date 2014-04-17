@@ -58,11 +58,11 @@ When you want your local repositories to be updated, just:
 
  | repo sync
 
-If you really want to download everything by hand, just clone dora branch of @meta-layer@:
+If you really want to download everything by hand, just clone branch *dora* of *@meta-layer@*:
 
 .. host::
 
- | git clone -b dora https://github.com/architech-boards/@meta-layer@.git
+ | git clone -b dora @meta-layer-remote@/@meta-layer@.git
 
 and have a look at the README file.
 

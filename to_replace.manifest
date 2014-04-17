@@ -27,3 +27,6 @@
 @quick-lan-connector@
 @qt-libs-alias@
 @arm-toolchain-directory@
+@quickstart-image-extension@
+@quickstart-image-tar-options@
+@meta-layer-remote@
