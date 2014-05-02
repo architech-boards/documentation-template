@@ -12,35 +12,6 @@ Install
 
 Such a modification will be effective after a logout and subsquent login or after a reboot of the virtual machine, so just shutdown the virtual machine so you can catch up with the next section.
 
-Patch
-=====
-
-Be sure you have the proper version of sources and binaries by running a patch script.
-
-1. If not already started, start the VM by selecting the virtual machine from the list and by clicking on *Start* button.
-
-.. image:: _static/vbStart.png
-    :align: center
-
-2. Verify that you have a working Internet connection by surfing the web with Firefox or by trying to ping a public server (e.g. *www.google.com*).
-
-3. Download and execute the patch script
-
-.. host::
-
- | cd ~/Documents
- | wget http://downloads.architechboards.com/sdk/virtual_machine/patch.sh
- | chmod +x patch.sh
- | ./patch.sh
-
-4. When the script successfully completes, it displays this message
-
-::
-
- Patch installed correctly
-
-If instead the script hangs or generates errors, please be sure you have a working Internet connection from inside the virtual machine.
-
 Build
 =====
 
