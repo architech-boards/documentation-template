@@ -169,20 +169,3 @@ You need to choose a directory on your host operating system to share with the g
 
 Once the virtual machine has been booted, the shared folder will be mounted under */media/* directory inside the virtual machine.
 
-To access the shared folder inside the virtual machine you need to be *root* or to add your user to *vboxsf*.
-
-6. The most comfortable way is to add user *@user@* to group *vboxsf* directly from the command line of the virtual machine, so click on the *Start* button in the toolbar.
-
-.. image:: _static/vbStart.png
-    :align: center
-
-7. Open a new terminal inside the virtual machine (CTRL+ALT+t) and execute this command
-
-.. host::
-
- | sudo usermod -a -G vboxsf @user@
-
-.. note::
-
- **sudo** password is: "**@user-password@**"
-
