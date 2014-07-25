@@ -76,4 +76,5 @@ Chapters
   bsp
   tools
   board
+  @add-ons@
   faq

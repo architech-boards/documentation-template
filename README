@@ -169,6 +169,8 @@ The aliases currently defined inside the documentation are the following:
 	The options to use to extract the tarball containing the rootfs built and used in the quick start guide (e.g. -xjf or -xzf)
 @meta-layer-remote@
 	The URI of the remote server hosting the board meta-layer repository, for example: git://git.yoctoproject.org, https://github.com/architech-boards, etc.
+@add-ons@
+    If defined, causes the documentation to include a chapter dedicated to add-ons
 
 ####################
 # Custom Documents #
