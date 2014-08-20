@@ -127,7 +127,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 .. image:: _static/remotepath.jpg
     :align: center
 
-* Enter also in the path the name of the application you want to debug. (e.g. Hello)
+* Enter also in the target path the name of the application you want to debug. (e.g. HelloWorld)
 
 .. image:: _static/debug2.jpg
     :align: center

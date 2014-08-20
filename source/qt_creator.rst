@@ -18,7 +18,7 @@ Qt Creator
 
 .. note::
 
- You could build *qt4e-demo-image* if you want to see the demo of Qt. Just remember to complete its file system with *tcf-agent*, *gdbserver* and *openssh*.
+ To follow this guide build *qt4e-demo-image* image. Remember to complete its file system with *tcf-agent*, *gdbserver* and *openssh*.
 
 2. Deploy the :ref:`root file system <rootfs_label>` just generated on the final media used to boot the board
 
