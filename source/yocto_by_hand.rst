@@ -1,6 +1,12 @@
 Yocto
 =====
 
+If you have launched machine_installer or run_install.sh script, yocto is already installed. 
+The following steps are useful for understood how the sdk works "under the hood".
+
+Installation with repo
+----------------------
+
 The easiest way to setup and keep all the necessary meta-layers in sync with upstream repositories
 is achieved by means of Google's **repo** tool.
 The following steps are necessary for a clean installation:
@@ -46,6 +52,9 @@ By the end of the last step, all the necessary meta-layers should be in place, a
 edit your **local.conf** and **bblayers.conf** to compile for @machine-name@ machine and using all the downloaded
 meta-layers.
 
+Updating with repo
+------------------
+
 When you want your local repositories to be updated, just:
 
 1) Open a terminal
@@ -57,6 +66,9 @@ When you want your local repositories to be updated, just:
 .. host::
 
  | repo sync
+
+Install Yocto by yourself
+-------------------------
 
 If you really want to download everything by hand, just clone branch *dora* of *@meta-layer@*:
 

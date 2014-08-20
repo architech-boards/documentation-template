@@ -2,6 +2,10 @@
 Architech's @board@ documentation
 ************@board-size:*@**************
 
+:Version: @version@@release@
+:Copyright: @copyright@
+:Date: @date@
+
 .. image:: _static/board.png
     :align: center
 
@@ -62,6 +66,21 @@ machine, like for example:
 
  | /dev/sdb
 
+
+When referring to a specific partition of a device, you could read something like this in the documentation:
+
+.. host::
+
+ | /path/to/your/USB/device/partition
+
+Even in this case, the things are different from one machine to another, like for example:
+
+.. host:
+
+ | /dev/sdb1
+
+we are referring to the device /dev/sdb and in the specific to the partition 1. To know more details please refer to :ref:`device files <device_files_label>` section of the :ref:`appendix <appendix_label>`.
+
 Chapters
 ========
 
@@ -78,3 +97,4 @@ Chapters
   board
   @add-ons@
   faq
+  appendix

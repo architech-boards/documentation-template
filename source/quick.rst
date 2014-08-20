@@ -27,7 +27,6 @@ Build
 .. image:: _static/vbStart.png
     :align: center
 
-
 3. Double click on *Architech SDK* icon you have on the virtual machine desktop.
 
 .. image:: _static/splash0.jpg
@@ -109,19 +108,27 @@ The time to create a simple *HelloWorld!* application using **Eclipse** has come
 .. image:: _static/splash4.jpg
     :align: center
 
-2. Go to *File→ New→ Project*, select *C/C++→ C Project* and press *next* button.
+2. Go to *File→ New→ Project...*, in the node "C/C++" select *C Project* and press *next* button.
 
 .. image:: _static/eclipse-newprj1.jpg
     :align: center
 
-3. Insert *HelloWorld* as project name, select *Hello World ANSI C Autotools Project* and press *next* button.
+3. Insert *HelloWorld* as project name, open the node *Yocto Project ADT Autotools Project* and select *Hello World ANSI C Autotools Project* and press *next* button.
 
 .. image:: _static/eclipse-new-project.jpg
     :align: center
 
 4. Insert *Author* field and click on *Finish* button. Select *Yes* on the *Open Associated Perspective?* question.
 
-5. Build the project by selecting *Project→ Build All*.
+.. image:: _static/eclipse-author.jpg
+    :align: center
+
+5. Open the windows properties clicking on *Project→ Properties* and select *Yocto Project Settings*. Check *Use project specific settings* in order to use the pengwyn cross-toolchain.
+
+.. image:: _static/eclipse-properties.jpg
+    :align: center
+
+5. Click on *OK* button and build the project by selecting *Project→ Build All*.
 
 Debug
 =====
@@ -155,7 +162,7 @@ then the ethernet connection is ok. Enable the remote debug with Yocto by typing
 
 On the Host machine, follow these steps to let **Eclipse** deploy and debug your application:
 
-* Select Run→ Debug Configurations...
+* Select *Run→ Debug Configurations...*
 * In the left area, expand *C/C++Remote Application*.
 * Locate your project and select it to bring up a new tabbed view in the *Debug Configurations* Dialog.
 
@@ -183,7 +190,7 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 .. image:: _static/remotepath.jpg
     :align: center
 
-* Enter also in the path the name of the application you want to debug. (e.g. Hello)
+* Enter also in the path the name of the application you want to debug. (e.g. HelloWorld)
 
 .. image:: _static/debug2.jpg
     :align: center
@@ -213,4 +220,4 @@ On the Host machine, follow these steps to let **Eclipse** deploy and debug your
 .. important::
 
  If debug does not work, check on the board if *tcf-agent* is running and *gdbserver* has been installed.
-
+ You can ignore the message "Cannot access memory at address 0x0".

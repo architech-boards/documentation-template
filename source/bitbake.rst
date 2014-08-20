@@ -60,6 +60,10 @@ The default build directory for @board@ is located under:
 and the splash screen has a facility (a button located under @board@'s page) that can take you
 there with the right environment already in place so you are productive right away.
 
+.. important::
+
+ | If you don't use the default build directory you need setup the local.conf file. See the paragraph below.
+
 Configuration files
 -------------------
 
@@ -126,14 +130,14 @@ for example:
 
  | bitbake @quickstart-image@
 
-Such a comman will build bootloader, Linux kernel and a root file system.
+Such a command will build bootloader, Linux kernel and a root file system.
 *@quickstart-image@* tells Bitbake to execute whatever recipe
 
 .. host::
 
  | /home/@user@/architech_sdk/architech/@board-alias@/yocto/poky/meta/recipes-extended/images/@quickstart-image@.bb
 
-tells it to do, so, you just place the name of the recipe without the extension.
+you just place the name of the recipe without the extension *.bb*.
 
 Of course, there are times when you want more control over Bitbake, for example, you want to execute just one task
 like recompiling the Linux kernel, no matter what. That action can be achieved with:

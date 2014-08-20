@@ -110,9 +110,11 @@ The aliases currently defined inside the documentation are the following:
 @copyright@
     Used by the template inside file conf.py
 @version@
-    Used by the template inside file conf.py
+    Used by the template inside file conf.py, X.Y.Z, X = new/modified chapter, Y = new/modified pharagraph, Z = minor fixs
 @release@
-    Used by the template inside file conf.py
+    Used by the template inside file conf.py, it is a letter, for every full revision the letter increases
+@date@
+		Used by the template inside file index.rst
 @htmlhelp@
     Used by the template inside file conf.py
 @vendor@
@@ -170,8 +172,8 @@ The aliases currently defined inside the documentation are the following:
 @meta-layer-remote@
 	The URI of the remote server hosting the board meta-layer repository, for example: git://git.yoctoproject.org, https://github.com/architech-boards, etc.
 @add-ons@
-    If defined, causes the documentation to include a chapter dedicated to add-ons
-
+	If defined, causes the documentation to include a chapter dedicated to add-ons
+	
 ####################
 # Custom Documents #
 ####################

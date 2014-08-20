@@ -32,15 +32,16 @@ Qt Creator
 
 .. host::
 
- | sudo mkdir -p /path/to/board/sysroot/usr/local/Trolltech/
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* /path/to/board/sysroot/usr/local/Trolltech/
+ | sudo mkdir -p /path/to/target/usr/local/Trolltech/
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* /path/to/target/usr/local/Trolltech/
 
-5. Copy the Qt Libraries to your sdk sysroot directory
+5. Copy the Qt Libraries and cpp libraries to your sdk sysroot directory
 
 .. host::
 
  | sudo mkdir -p ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/
  | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech
+ | sudo cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
 
 6. Unmount the media used to boot the board from your computer and insert it into the board
 
@@ -74,29 +75,46 @@ To create the project follow these steps:
 .. image:: _static/qtCreatorStart.jpg
 	   :align: center
 
-2. Go to *File -> Open File or Project* to open **QtHelloWorld.pro** file located in */home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/QtHelloWorld/* directory.
+2. Go to *File -> New File or Project*. In the new window select *Applications* as project and *Qt Gui Application*. Click on *Choose...* button.
 
-3. Click on "QtHelloWorld" icon to open project menu.
+.. image:: _static/qt-project-gui.jpg
+	   :align: center
+	   
+3. Select a name for your project for example *QtHelloWorld* and press *next* button.
+
+.. image:: _static/qt-project-name.jpg
+	   :align: center
+
+3. Check also *pengwyn* kit and continue to press *next* button to finish the creation of the project.
+
+.. image:: _static/qt-project-kits.jpg
+	   :align: center
+
+.. note::
+
+	Now you can edit your application adding labels and more, how to do this is not the purpose of this guide.
+
+4. To compile the project click on "QtHelloWorld" icon to open project menu.
 
 .. image:: _static/qt-1.png
 	   :align: center
 
-4. Select the build configuration: **Desktop - Debug**.
+5. Select the build configuration: **Desktop - Debug**.
 
 .. image:: _static/qt-2.jpg
 	   :align: center
 
-5. To build the project, click on the bottom-left icon.
+6. To build the project, click on the bottom-left icon.
 
 .. image:: _static/qt-3.png
 	   :align: center
 
-6. Once you built the project, click on the green triangle to run it.
+7. Once you built the project, click on the green triangle to run it.
 
 .. image:: _static/qt-4.png
 	   :align: center
 
-7. Congratulations! You just built your first Qt application for x86.
+8. Congratulations! You just built your first Qt application for x86.
 
 .. image:: _static/qt-5.png
 	   :align: center
@@ -115,7 +133,7 @@ Debug Hello World project
 
 .. host::
 
-  | scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-Hachiko-Debug/QtHelloWorld root@@target-ip@:/home/root
+  | scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-@board@-Debug/QtHelloWorld root@@target-ip@:/home/root
 
 3. Use minicom to launch gdbserver application on the target board:
 
