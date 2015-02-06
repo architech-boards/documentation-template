@@ -17,7 +17,7 @@ The password for the default user, that is **@user@**, is:
 What is the password of **sudo**?
 ---------------------------------
 
-The default passowrd of **@user@** is **@user-password@**. If you are searching more information about **sudo** command please refer to :ref:`sudo <sudo_info_label>` section of the :ref:`appendix <appendix_label>`.
+The default password of **@user@** is **@user-password@**. If you are searching more information about **sudo** command please refer to :ref:`sudo <sudo_info_label>` section of the :ref:`appendix <appendix_label>`.
 
 What is the password for user root?
 -----------------------------------
