@@ -43,7 +43,11 @@
 .. host::
 
  | EXTRA_IMAGE_FEATURES_append = " tools-debug debug-tweaks"
- | IMAGE_INSTALL_append = " tcf-agent"
+ | IMAGE_INSTALL_append = " tcf-agent gdbserver"
+ | or
+ | EXTRA_IMAGE_FEATURES_append = " tools-debug debug-tweaks"
+ | IMAGE_FEATURES_append = " eclipse-debug"
+
 
 This will trigger the installation of a features set onto the final root file system, like *tcf-agent* and *gdbserver*.
 

@@ -8,7 +8,7 @@ Qt Creator
 
 | **Qt** is a cross-platform application framework that is used to build applications. One of the best features of Qt is its capability of generating Graphical User Interfaces (GUIs).
 | **Qt Creator** is a cross-platform C++ IDE which includes a visual debugger, an integrated GUI layout and form designer. It makes possible to compile and debug applications on both **x86** (host) and **ARM** (target) machines.
-| This SDK relies on **version 4.8.5** of Qt and **version 2.8.1** of Qt Creator.
+| This SDK relies on **version @qt-version@** of Qt and **version 2.8.1** of Qt Creator.
 
 |
 |
@@ -18,7 +18,10 @@ Qt Creator
 
 .. note::
 
- To follow this guide build *qt4e-demo-image* image. Remember to complete its file system with *tcf-agent*, *gdbserver* and *openssh*.
+ | To follow this guide build *qt4e-demo-image* image. Remember to complete its file system (by the local.conf) with *tcf-agent*, *gdbserver* and *openssh*.
+ | 
+ | If the borad uses the touchscreen add the following line into the local.conf:
+ | IMAGE_INSTALL_append = " tslib tslib-conf tslib-tests tslib-calibrate"
 
 2. Deploy the :ref:`root file system <rootfs_label>` just generated on the final media used to boot the board
 
@@ -27,20 +30,21 @@ Qt Creator
 .. host::
 
  | /home/@user@/architech_sdk/architech/@board-alias@/sysroot
+ | sudo tar @quickstart-image-tar-options@ /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/qt4e-demo-image-@machine-name@.@quickstart-image-extension@ -C /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
 
 4. Copy the Qt Libraries to the board media used to boot
 
 .. host::
 
- | sudo mkdir -p /path/to/target/usr/local/Trolltech/
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* /path/to/target/usr/local/Trolltech/
+ | sudo mkdir -p /path/to/target/usr/local/Trolltech/@board@/
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* /path/to/target/usr/local/Trolltech/@board@/
 
 5. Copy the Qt Libraries and cpp libraries to your sdk sysroot directory
 
 .. host::
 
- | sudo mkdir -p ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech
+ | sudo mkdir -p ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/@board@/
+ | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/@board@/
  | sudo cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
 
 6. Unmount the media used to boot the board from your computer and insert it into the board
@@ -133,7 +137,7 @@ Debug Hello World project
 
 .. host::
 
-  | scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-@board@-Debug/QtHelloWorld root@@target-ip@:/home/root
+  | scp /home/@user@/architech_sdk/architech/@board-alias@/workspace/qt/build-QtHelloWorld-@board-alias@-Debug/QtHelloWorld root@@target-ip@:/home/root
 
 3. Use minicom to launch gdbserver application on the target board:
 

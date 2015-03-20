@@ -92,7 +92,7 @@ You can easily setup a new repository for your custom builds:
 
 .. host::
 
- | sudo ln -s /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/ipk/ /var/www/@board-alias@-ipk
+ | sudo ln -s /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/ipk/ /var/www/html/@board-alias@-ipk
 
 3) Create a new configuration file on the target (for example */etc/opkg/my_packages.conf*) containing lines like this one to index the packages related to a particular machine:
 

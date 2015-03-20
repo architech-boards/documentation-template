@@ -27,6 +27,13 @@ To write your application you need:
 
 .. index:: Project
 
+.. note::
+
+ | Before to start remenber to copy the toolchain to sysroot
+ | 
+ | cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/cortexa8t2hf-vfp-neon-poky-linux-gnueabi/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot
+
+
 Creating the Project
 --------------------
 
