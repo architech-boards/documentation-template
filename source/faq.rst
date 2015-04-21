@@ -22,7 +22,7 @@ The default password of **@user@** is **@user-password@**. If you are searching 
 What is the password for user root?
 -----------------------------------
 
-By default, @ubuntu-version@ comes with no password defined for **roor** user, to set it run the following
+By default, @ubuntu-version@ comes with no password defined for **root** user, to set it run the following
 command:
 
 .. host::
