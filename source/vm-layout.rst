@@ -34,8 +34,6 @@ its sub-directories main layout is the following:
  |             |
  |             |_ eclipse
  |             |
- |             |_ java
- |             |
  |             |_ qtcreator
  |             |
  |             |_ splashscreen
@@ -64,7 +62,6 @@ its sub-directories main layout is the following:
 along with all the information needed by the splash screen application. In particular:
 
 * *eclipse* directory is where Eclipse IDE has been installed
-* *java* directory is where the Java Virtual Machine has been installed (needed by Eclipse)
 * *qtcreator* contains the installation of Qt Creator IDE
 * *splashscreen* directory contains information and scripts used by the splash screen application,
 * *sysroot* is supposed to contain the file system you want to compile against,
@@ -84,7 +81,7 @@ It can be opened by clicking on its *Desktop* icon.
 Once started, you can can choose if you want to work with Architech's boards or with partners'
 ones. For @board@, choose **ArchiTech**.
 
-.. image:: _static/splashscreen-architech.png
+.. image:: _static/splash1.jpg
     :align: center
 
 A list of all available Architech's boards will open, select @board@.
