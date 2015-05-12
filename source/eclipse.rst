@@ -29,9 +29,9 @@ To write your application you need:
 
 .. note::
 
- | Before to start remenber to copy the toolchain to sysroot
+ | Before to start remember to copy the cross-toolchain libreries to sysroot
  | 
- | cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/cortexa8t2hf-vfp-neon-poky-linux-gnueabi/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot
+ | cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot
 
 
 Creating the Project

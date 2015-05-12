@@ -89,7 +89,7 @@ To create the project follow these steps:
 .. image:: _static/qt-project-name.jpg
 	   :align: center
 
-3. Check also *pengwyn* kit and continue to press *next* button to finish the creation of the project.
+3. Check also *@board@* kit and continue to press *next* button to finish the creation of the project.
 
 .. image:: _static/qt-project-kits.jpg
 	   :align: center
