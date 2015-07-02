@@ -25,27 +25,36 @@ Qt Creator
 
 2. Deploy the :ref:`root file system <rootfs_label>` just generated on the final media used to boot the board
 
-3. Replicate the same root file system into directory
+3. Replicate the same root file system into directory: */home/@user@/architech_sdk/architech/@board-alias@/sysroot*
 
 .. host::
 
- | /home/@user@/architech_sdk/architech/@board-alias@/sysroot
  | sudo tar @quickstart-image-tar-options@ /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/qt4e-demo-image-@machine-name@.@quickstart-image-extension@ -C /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
 
-4. Copy the Qt Libraries to the board media used to boot
+4. Copy the Qt Libraries and cpp libraries to your sdk sysroot directory
 
 .. host::
 
- | sudo mkdir -p /path/to/target/usr/local/Trolltech/@board@/
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* /path/to/target/usr/local/Trolltech/@board@/
+ | sudo cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot
+ | sudo chown -R architech:architech /home/@user@/architech_sdk/architech/@board-alias@/sysroot
 
-5. Copy the Qt Libraries and cpp libraries to your sdk sysroot directory
+5. Copy the Qt Libraries to the board media used to boot
 
 .. host::
 
- | sudo mkdir -p ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/@board@/
- | sudo cp -r /usr/local/Trolltech/@qt-libs-alias@/* ~/architech_sdk/architech/@board-alias@/sysroot/usr/local/Trolltech/@board@/
- | sudo cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot/
+ | sudo cp -r /home/@user@/architech_sdk/architech/@board-alias@/sysroot/* /path/to/sd/card/rootfs
+
+and edit the file /path/to/sd/card/rootfs/etc/passwd, change the line
+
+.. host::
+
+ | root:x:0:0:root:/home/root:/bin/sh
+
+to:
+
+.. host::
+
+ | root::0:0:root:/home/root:/bin/sh
 
 6. Unmount the media used to boot the board from your computer and insert it into the board
 
