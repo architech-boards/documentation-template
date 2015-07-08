@@ -35,7 +35,7 @@ The time to create a simple *HelloWorld!* application using **Eclipse** has come
 
  | Before to start remember to copy the cross-toolchain libreries to sysroot
  | 
- | cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot
+ | sudo cp -r /home/@user@/architech_sdk/architech/@board-alias@/toolchain/sysroots/@arm-toolchain-directory@/* /home/@user@/architech_sdk/architech/@board-alias@/sysroot
 
 
 1. Return to the **Splashscreen**, which we left on @board@ board screen, and click on *Develop with Eclipse*.
