@@ -36,10 +36,46 @@ Install just one board
 If you don't want to install the tools for all the boards, you can install just the subset
 of tools related to @board@:
 
+1) Install repo tool, if you already have it go to step 4
+
 .. host::
 
+ | mkdir -p ~/bin
+ | sudo apt-get update
+ | sudo apt-get install curl
+ | curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+ | chmod a+x ~/bin/repo
+
+2) Make sure directory *~/bin* is included in your *PATH* variable by printing its content
+
+.. host::
+
+ | echo $PATH
+
+3) If *~/bin* directory is not included, add this line to your *~/.bashrc*
+
+.. host::
+
+ | export PATH="$PATH:${HOME}/bin"
+
+4) Install and setup git:
+
+.. host::
+
+  | sudo apt-get install git-core
+  | git config --global user.name "Architech User"
+  | git config --global user.email ""
+  | git config --global color.ui "auto"
+
+5) Finally install the board sdk:
+
+.. host::
+
+ | mkdir @board@
+ | cd @board@
  | git clone -b @yocto-version@ https://github.com/architech-boards/@board-splashscreen@.git
- | cd @board-splashscreen@
+ | mv @board-splashscreen@ splashscreen
+ | cd splashscreen
  | ./run_install
 
 This script needs the same tools/packages required by *machine_install*
