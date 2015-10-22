@@ -36,29 +36,35 @@ Install just one board
 If you don't want to install the tools for all the boards, you can install just the subset
 of tools related to @board@:
 
-1) Install repo tool, if you already have it go to step 4
+1) Install the following packages, it can require for a while:
+
+.. host::
+
+ | sudo apt-get update
+ | sudo apt-get --yes --force-yes install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm vim curl u-boot-tools libqtwebkit4 qt4-dev-tools texi2html subversion apache2 autoconf vim-common uuid-dev iasl default-jre libncurses5-dev > /dev/null
+
+2) Install repo tool, if you already have it go to the next step
 
 .. host::
 
  | mkdir -p ~/bin
- | sudo apt-get update
  | sudo apt-get install curl
  | curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
  | chmod a+x ~/bin/repo
 
-2) Make sure directory *~/bin* is included in your *PATH* variable by printing its content
+3) Make sure directory *~/bin* is included in your *PATH* variable by printing its content
 
 .. host::
 
  | echo $PATH
 
-3) If *~/bin* directory is not included, add this line to your *~/.bashrc*
+4) If *~/bin* directory is not included, add this line to your *~/.bashrc*
 
 .. host::
 
  | export PATH="$PATH:${HOME}/bin"
 
-4) Install and setup git:
+5) Install and setup git:
 
 .. host::
 
@@ -67,7 +73,7 @@ of tools related to @board@:
   | git config --global user.email ""
   | git config --global color.ui "auto"
 
-5) Finally install the board sdk:
+6) Finally install the board sdk:
 
 .. host::
 
@@ -78,4 +84,17 @@ of tools related to @board@:
  | cd splashscreen
  | ./run_install
 
-This script needs the same tools/packages required by *machine_install*
+before build an image with bitbake open the file */your/path/@board@/yocto/build/conf/local.conf* and edit these variables:
+
+.. host::
+
+  | DL_DIR = "/home/downloads"
+  | SSTATE_DIR = "/home/sstate-cache"
+
+and change them in:
+
+.. host::
+
+  | DL_DIR ?= "${TOPDIR}/downloads"
+  | SSTATE_DIR ?= "${TOPDIR}/sstate-cache"
+
