@@ -70,7 +70,7 @@ of tools related to @board@:
 
   | sudo apt-get install git-core
   | git config --global user.name "Architech User"
-  | git config --global user.email ""
+  | git config --global user.email "your@mail.org"
   | git config --global color.ui "auto"
 
 6) Finally install the board sdk:
